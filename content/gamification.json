@@ -6,7 +6,6 @@
     "quizPerfectBonus": 20,
     "miniProjectComplete": 150,
     "capstoneComplete": 500,
-    "portfolioEntryPublished": 300,
     "dailyStreakDailyBonus": 10
   },
   "ranks": [
@@ -23,7 +22,6 @@
     { "id": "perfect-quiz", "name": "Flawless", "criteria": "Score 100% on a lesson quiz." },
     { "id": "streak-7", "name": "On a Roll", "criteria": "Maintain a 7-day streak." },
     { "id": "streak-30", "name": "Unstoppable", "criteria": "Maintain a 30-day streak." },
-    { "id": "first-portfolio", "name": "Show & Tell", "criteria": "Publish your first portfolio entry." },
     { "id": "capstone", "name": "End-to-End", "criteria": "Complete a pathway capstone." }
   ],
   "streaks": {
