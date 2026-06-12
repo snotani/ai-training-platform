@@ -48,16 +48,17 @@ export function QuizDialog({
         <LightbulbIcon />
         {label}
       </DialogTrigger>
-      <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
+      <DialogContent className="max-h-[88vh] overflow-y-auto sm:max-w-xl">
         <DialogHeader>
-          <DialogTitle className="flex items-center gap-2">
-            <span className="flex size-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
+          <DialogTitle className="flex items-center gap-2.5">
+            <span className="flex size-8 items-center justify-center rounded-xl bg-primary/10 text-primary">
               <HelpCircleIcon className="size-4" />
             </span>
             Check your understanding
           </DialogTitle>
           <DialogDescription>
-            {count} quick question{count === 1 ? "" : "s"} with instant feedback.
+            {count} quick question{count === 1 ? "" : "s"} with instant feedback. Pass to mark the
+            lesson complete.
           </DialogDescription>
         </DialogHeader>
         <Quiz lessonId={lessonId} hideHeader bare />
