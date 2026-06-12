@@ -6,8 +6,11 @@ import Image from "next/image";
 import {
   ArrowRightIcon,
   CheckCircle2Icon,
+  ClockIcon,
   FlagIcon,
+  HelpCircleIcon,
   LockIcon,
+  RouteIcon,
   SparklesIcon,
 } from "lucide-react";
 
@@ -126,6 +129,20 @@ function LessonCard({
             <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
               {data.blurb}
             </p>
+          )}
+          {(data.minutes || quizAvailable) && (
+            <div className="mt-auto flex items-center gap-3 pt-1 text-[0.7rem] text-muted-foreground">
+              {data.minutes ? (
+                <span className="inline-flex items-center gap-1">
+                  <ClockIcon className="size-3" /> ~{data.minutes} min
+                </span>
+              ) : null}
+              {quizAvailable ? (
+                <span className="inline-flex items-center gap-1">
+                  <HelpCircleIcon className="size-3" /> Quiz
+                </span>
+              ) : null}
+            </div>
           )}
         </div>
       </Link>
@@ -280,8 +297,24 @@ export function CurriculumExplorer() {
 
   return (
     <div className="space-y-12">
-      {/* Progress + pathway controls */}
-      <div className="flex flex-col gap-5 rounded-2xl border bg-card p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
+      <div className="space-y-4">
+        {/* Recommended paths CTA */}
+        <Link
+          href="/pathways"
+          className="group flex items-center justify-between gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-5 py-4 transition-colors hover:bg-primary/10"
+        >
+          <span className="flex items-center gap-3 text-sm font-medium sm:text-base">
+            <RouteIcon className="size-5 shrink-0 text-primary" />
+            <span>
+              Don&apos;t know where to start?{" "}
+              <span className="text-primary">Find our recommended paths</span>
+            </span>
+          </span>
+          <ArrowRightIcon className="size-4 shrink-0 text-primary transition-transform group-hover:translate-x-0.5" />
+        </Link>
+
+        {/* Progress + pathway controls */}
+        <div className="flex flex-col gap-5 rounded-2xl border bg-card p-5 sm:p-6 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex-1">
           <div className="flex items-center gap-2">
             <SparklesIcon className="size-4 text-primary" />
@@ -315,6 +348,7 @@ export function CurriculumExplorer() {
               ))}
             </SelectContent>
           </Select>
+        </div>
         </div>
       </div>
 

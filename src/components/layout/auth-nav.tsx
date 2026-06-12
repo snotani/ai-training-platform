@@ -27,7 +27,7 @@ export function AuthNav({ className }: { className?: string }) {
       >
         Sign in
       </Button>
-      <LinkButton href="/learn" className={cn(className && "flex-1")}>
+      <LinkButton href="/#curriculum" className={cn(className && "flex-1")}>
         Start learning
       </LinkButton>
     </div>

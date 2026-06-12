@@ -10,7 +10,7 @@ export default function NotFound() {
       </p>
       <div className="mt-7 flex gap-2">
         <LinkButton href="/">Back home</LinkButton>
-        <LinkButton href="/learn" variant="outline">
+        <LinkButton href="/#curriculum" variant="outline">
           Browse the curriculum
         </LinkButton>
       </div>

@@ -13,7 +13,6 @@ export type NavItem = {
 };
 
 export const mainNav: NavItem[] = [
-  { title: "Learn", href: "/learn", description: "The 12-level curriculum map." },
   { title: "Pathways", href: "/pathways", description: "Role-based recommended tracks." },
   { title: "Portfolio", href: "/portfolio", description: "Projects I've designed and shipped." },
   { title: "Glossary", href: "/glossary", description: "Every term, in plain English." },

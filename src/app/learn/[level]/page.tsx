@@ -40,7 +40,7 @@ export default async function LevelPage({
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6">
       <Link
-        href="/learn"
+        href="/#curriculum"
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         <ArrowLeftIcon className="size-3.5" /> All levels
