@@ -196,7 +196,7 @@ export function Hero() {
           </motion.div>
 
           <motion.p variants={item} className="mt-6 text-xs text-muted-foreground">
-            12 levels &middot; from your first prompt to production agents &middot; free to start
+            12 levels &middot; from your first prompt to production agents &middot; always free
           </motion.p>
         </motion.div>
       </motion.div>
