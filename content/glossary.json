@@ -1,0 +1,32 @@
+{
+  "description": "Living glossary for hover-definitions. 'introducedIn' links each term to the lesson that first teaches it. Seeded for Level 1 plus key forward terms; extended as Levels 2-12 are authored.",
+  "terms": [
+    { "term": "Artificial Intelligence (AI)", "short": "Software that performs tasks we'd normally call intelligent - the broad umbrella over ML, deep learning, and GenAI.", "introducedIn": "1.1" },
+    { "term": "Machine Learning (ML)", "short": "Algorithms that learn patterns from data instead of following hand-written rules.", "introducedIn": "1.1" },
+    { "term": "Deep Learning", "short": "ML using many-layered neural networks that learn features directly from raw data (images, audio, text).", "introducedIn": "1.1" },
+    { "term": "Generative AI", "short": "Deep learning trained to create new content (text, images, audio, code), not just classify or predict.", "introducedIn": "1.1" },
+    { "term": "Feature engineering", "short": "Humans hand-picking the useful columns/inputs a traditional ML model learns from.", "introducedIn": "1.1" },
+    { "term": "Large Language Model (LLM)", "short": "A large neural network that generates text by predicting the next token, trained on huge amounts of text.", "introducedIn": "1.2" },
+    { "term": "Token", "short": "The chunk of text a model reads/writes - roughly 4 characters or 0.75 of a word.", "introducedIn": "1.2" },
+    { "term": "Tokenization", "short": "Splitting text into tokens before the model processes it.", "introducedIn": "1.2" },
+    { "term": "Next-token prediction", "short": "How an LLM generates: it assigns probabilities to possible next tokens and samples one, repeatedly.", "introducedIn": "1.2" },
+    { "term": "Temperature", "short": "A dial for randomness: low = focused/predictable, high = creative/riskier.", "introducedIn": "1.2" },
+    { "term": "Parameter", "short": "One of the model's billions of adjustable 'dials', set during training.", "introducedIn": "1.2" },
+    { "term": "Pre-training", "short": "The first training phase: predict the next token across internet-scale text (self-supervised) to learn language and knowledge.", "introducedIn": "1.2" },
+    { "term": "Post-training", "short": "Later training (fine-tuning + RLHF) that makes a base model helpful, honest, and safe.", "introducedIn": "1.2" },
+    { "term": "RLHF", "short": "Reinforcement Learning from Human Feedback - humans rank answers and the model learns what people prefer.", "introducedIn": "1.2" },
+    { "term": "Hallucination", "short": "When a model states something false as if true, because it generates plausible text without a fact-check.", "introducedIn": "1.3" },
+    { "term": "Bias", "short": "Skew a model absorbs from human-written training data (stereotypes, skewed defaults).", "introducedIn": "1.3" },
+    { "term": "Knowledge cutoff", "short": "The date a model's training data ends; it can't know newer events without tools/search.", "introducedIn": "1.3" },
+    { "term": "Context window", "short": "How much text a model can consider at once; long inputs can get truncated or lost.", "introducedIn": "1.3" },
+    { "term": "AI slop", "short": "Mass-produced, low-effort AI content that looks fine but adds little value.", "introducedIn": "1.3" },
+    { "term": "PII", "short": "Personally Identifiable Information - names, emails, IDs, health, payment data.", "introducedIn": "1.4" },
+    { "term": "Prompt", "short": "The instruction/input you give an AI model.", "introducedIn": "2.1", "status": "forward-reference" },
+    { "term": "Chain of Thought (CoT)", "short": "Prompting a model to reason step by step, improving logic and math.", "introducedIn": "2.3", "status": "forward-reference" },
+    { "term": "Embedding", "short": "A numeric vector capturing the meaning of text, so machines can compare similarity.", "introducedIn": "8.1", "status": "forward-reference" },
+    { "term": "RAG", "short": "Retrieval-Augmented Generation - fetch relevant documents and feed them to the model so it answers from real sources.", "introducedIn": "8.2", "status": "forward-reference" },
+    { "term": "Agent", "short": "An LLM that can plan, use tools, and take multi-step actions toward a goal.", "introducedIn": "10.1", "status": "forward-reference" },
+    { "term": "ReAct", "short": "An agent pattern that interleaves reasoning and actions (tool calls).", "introducedIn": "10.1", "status": "forward-reference" },
+    { "term": "MCP", "short": "Model Context Protocol - a standard way to connect models to tools and data sources.", "introducedIn": "7.3", "status": "forward-reference" }
+  ]
+}

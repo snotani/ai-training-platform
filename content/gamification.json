@@ -1,0 +1,55 @@
+{
+  "description": "Engagement and gamification config, tuned for a corporate setting (team-based competition reduces individual pressure and drives return visits). Values are starting points to balance during the platform build.",
+  "points": {
+    "lessonComplete": 50,
+    "quizCorrectAnswer": 10,
+    "quizPerfectBonus": 20,
+    "miniProjectComplete": 150,
+    "capstoneComplete": 500,
+    "portfolioEntryPublished": 300,
+    "dailyStreakDailyBonus": 10
+  },
+  "ranks": [
+    { "id": "novice", "name": "AI Novice", "minXp": 0 },
+    { "id": "practitioner", "name": "Practitioner", "minXp": 750 },
+    { "id": "builder", "name": "Builder", "minXp": 2500 },
+    { "id": "specialist", "name": "Specialist", "minXp": 6000 },
+    { "id": "expert", "name": "AI Expert", "minXp": 12000 }
+  ],
+  "badges": [
+    { "id": "first-lesson", "name": "First Steps", "criteria": "Complete your first lesson." },
+    { "id": "level-complete", "name": "Level Cleared", "criteria": "Complete all lessons + mini-project in a level." },
+    { "id": "pathway-complete", "name": "Path Finisher", "criteria": "Complete a full pathway." },
+    { "id": "perfect-quiz", "name": "Flawless", "criteria": "Score 100% on a lesson quiz." },
+    { "id": "streak-7", "name": "On a Roll", "criteria": "Maintain a 7-day streak." },
+    { "id": "streak-30", "name": "Unstoppable", "criteria": "Maintain a 30-day streak." },
+    { "id": "first-portfolio", "name": "Show & Tell", "criteria": "Publish your first portfolio entry." },
+    { "id": "capstone", "name": "End-to-End", "criteria": "Complete a pathway capstone." }
+  ],
+  "streaks": {
+    "type": "daily",
+    "graceFreezesPerMonth": 2,
+    "note": "A freeze protects a streak for one missed day."
+  },
+  "leaderboards": [
+    { "id": "team", "name": "Team / Department", "scope": ["weekly", "all-time"], "primary": true, "note": "Department-vs-department keeps it collaborative, not anxiety-inducing." },
+    { "id": "individual", "name": "Individual", "scope": ["weekly", "all-time"], "primary": false, "optInPrivacy": true }
+  ],
+  "spacedRepetition": {
+    "enabled": true,
+    "source": "missed and key quiz items",
+    "intervalsDays": [1, 3, 7, 16, 35],
+    "note": "Resurfaces past questions for retention rather than one-and-done."
+  },
+  "certificates": {
+    "perPathway": true,
+    "shareable": true,
+    "channels": ["LinkedIn", "downloadable PDF"],
+    "note": "Issued on pathway completion; a strong motivator in enterprise."
+  },
+  "placementQuiz": {
+    "enabled": true,
+    "skippable": true,
+    "effect": "Suggests a pathway and offers to let strong users test out of early lessons; never restricts access."
+  }
+}

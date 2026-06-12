@@ -1,0 +1,257 @@
+{
+  "title": "AI Training Platform Curriculum",
+  "version": "0.2.0",
+  "status": "Level 1 published; Levels 2-12 are placeholders to be authored later.",
+  "conventions": {
+    "lessonStatus": ["published", "placeholder"],
+    "contentRef": "For published lessons, points to the authored content in CURRICULUM.md by lesson heading (e.g. 'Lesson 1.1 - The AI Shift'). Placeholders have contentRef: null.",
+    "changeFlags": "new | moved | recast | reorder | update - documents how a lesson differs from the original v1 draft."
+  },
+  "phases": [
+    { "id": "foundations", "name": "Foundations", "levels": [1, 2] },
+    { "id": "adoption", "name": "Adoption & Models", "levels": [3, 4, 5] },
+    { "id": "quality", "name": "Quality & Engineering", "levels": [6, 7] },
+    { "id": "data", "name": "Data & RAG", "levels": [8, 9] },
+    { "id": "agents", "name": "Agents & Governance", "levels": [10, 11] },
+    { "id": "deep", "name": "Deep Architecture", "levels": [12] }
+  ],
+  "levels": [
+    {
+      "id": 1,
+      "title": "Generative AI Literacy",
+      "audienceHint": "All roles",
+      "phase": "foundations",
+      "lessons": [
+        {
+          "id": "1.1",
+          "title": "The AI Shift",
+          "status": "published",
+          "difficulty": "Beginner",
+          "estMinutes": 12,
+          "prerequisites": [],
+          "objectives": [
+            "Explain the four eras of AI and what changed at each step.",
+            "Distinguish Traditional ML, Deep Learning, and Generative AI - how each learns, what it outputs, and its trade-offs.",
+            "Choose the right approach for a given real-world problem."
+          ],
+          "interactive": ["Pick the right tool (drag scenarios to ML / DL / GenAI)"],
+          "quizCount": 3,
+          "portfolioArtifact": null,
+          "contentRef": "CURRICULUM.md::Lesson 1.1 - The AI Shift"
+        },
+        {
+          "id": "1.2",
+          "title": "LLM Mechanics",
+          "status": "published",
+          "difficulty": "Beginner",
+          "estMinutes": 12,
+          "prerequisites": ["1.1"],
+          "objectives": [
+            "Explain what a token is and how an LLM turns text into tokens.",
+            "Describe next-token prediction and why temperature changes answers.",
+            "Explain pre-training vs post-training (including RLHF) in plain terms.",
+            "Say what billions of parameters means and why scale matters."
+          ],
+          "interactive": ["Be the model (pick next token + temperature slider)"],
+          "quizCount": 3,
+          "portfolioArtifact": null,
+          "contentRef": "CURRICULUM.md::Lesson 1.2 - LLM Mechanics"
+        },
+        {
+          "id": "1.3",
+          "title": "The Boundaries",
+          "status": "published",
+          "difficulty": "Beginner",
+          "estMinutes": 11,
+          "prerequisites": ["1.2"],
+          "objectives": [
+            "Know at a glance what LLMs are great at vs unreliable at - each with an example.",
+            "Explain why hallucinations happen (the mechanism, not just the label).",
+            "Identify the main limits: hallucination, bias, knowledge cutoff, weak exact math, context limits, slop.",
+            "Apply the right mitigation; confidence is not correctness."
+          ],
+          "interactive": ["Spot the hallucination (flag the fabricated answer)"],
+          "quizCount": 3,
+          "portfolioArtifact": null,
+          "contentRef": "CURRICULUM.md::Lesson 1.3 - The Boundaries"
+        },
+        {
+          "id": "1.4",
+          "title": "Lightweight Corporate Guardrails",
+          "status": "published",
+          "difficulty": "Beginner",
+          "estMinutes": 10,
+          "prerequisites": [],
+          "objectives": [
+            "Decide what is safe to put into which AI tool, and why.",
+            "Recognize PII and understand where your data can end up.",
+            "Apply practical safe patterns: redact, approved tools, data tiers."
+          ],
+          "interactive": ["Paste or Don't Paste? (two-step decision game)"],
+          "quizCount": 3,
+          "portfolioArtifact": null,
+          "contentRef": "CURRICULUM.md::Lesson 1.4 - Lightweight Corporate Guardrails"
+        }
+      ],
+      "miniProject": {
+        "id": "1.project",
+        "title": "AI in your world",
+        "status": "published",
+        "estMinutes": 12,
+        "producesArtifact": "AI Starter Reflection",
+        "contentRef": "CURRICULUM.md::Level 1 Mini-Project"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Applied Prompt Engineering & Interaction",
+      "audienceHint": "All roles",
+      "phase": "foundations",
+      "lessons": [
+        { "id": "2.1", "title": "Prompt Mechanics", "status": "placeholder", "prerequisites": ["1.2"] },
+        { "id": "2.2", "title": "Core Prompting", "status": "placeholder", "prerequisites": ["2.1"] },
+        { "id": "2.3", "title": "Advanced Frameworks (CoT, few-shot, persona)", "status": "placeholder", "prerequisites": ["2.2"] },
+        { "id": "2.4", "title": "Context Constraints", "status": "placeholder", "prerequisites": ["2.1"] },
+        { "id": "2.5", "title": "Staying Safe: Data Leakage & Prompt-Injection Basics", "status": "placeholder", "prerequisites": ["1.4"], "changeFlag": "new" },
+        { "id": "2.6", "title": "Trust but Verify: Fact-Checking AI Output", "status": "placeholder", "prerequisites": ["1.3", "2.2"], "changeFlag": "new" }
+      ],
+      "miniProject": { "id": "2.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 3,
+      "title": "The AI Economy & Workplace",
+      "audienceHint": "Business, Product & Legal",
+      "phase": "adoption",
+      "lessons": [
+        { "id": "3.1", "title": "AI Ergonomics", "status": "placeholder", "prerequisites": ["2.2"] },
+        { "id": "3.2", "title": "Core GenAI Economics", "status": "placeholder", "prerequisites": ["1.2"] },
+        { "id": "3.3", "title": "Use-Case Discovery", "status": "placeholder", "prerequisites": ["3.1"] },
+        { "id": "3.4", "title": "AI Change Management (Shadow AI)", "status": "placeholder", "prerequisites": ["1.4"] }
+      ],
+      "miniProject": { "id": "3.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 4,
+      "title": "Next-Gen Model Paradigms",
+      "audienceHint": "Product Leaders & Technical Builders",
+      "phase": "adoption",
+      "lessons": [
+        { "id": "4.1", "title": "Inference-Time Compute (reasoning models)", "status": "placeholder", "prerequisites": ["1.2"] },
+        { "id": "4.2", "title": "Multimodality", "status": "placeholder", "prerequisites": ["1.2"] },
+        { "id": "4.3", "title": "Model Flavours (OSS / API / SLM)", "status": "placeholder", "prerequisites": ["1.2"] },
+        { "id": "4.4", "title": "System Strategy (build vs buy, vendor eval)", "status": "placeholder", "prerequisites": ["3.2"], "changeFlag": "update" }
+      ],
+      "miniProject": { "id": "4.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 5,
+      "title": "AI Automation Workflows",
+      "audienceHint": "Business, Product & Technical Builders",
+      "phase": "adoption",
+      "lessons": [
+        { "id": "5.1", "title": "Workflow Design & Architecture", "status": "placeholder", "prerequisites": ["2.2"] },
+        { "id": "5.2", "title": "No-Code Automation (Zapier, Make)", "status": "placeholder", "prerequisites": ["5.1"] },
+        { "id": "5.3", "title": "API & Webhook Connections", "status": "placeholder", "prerequisites": ["5.2"] },
+        { "id": "5.4", "title": "Human-in-the-Loop Intercepts", "status": "placeholder", "prerequisites": ["5.1"] },
+        { "id": "5.5", "title": "Computer Use & Desktop OS Agents", "status": "placeholder", "prerequisites": ["5.1"], "changeFlag": "moved" },
+        { "id": "5.6", "title": "AI Workflow ROI", "status": "placeholder", "prerequisites": ["3.2", "5.1"] }
+      ],
+      "miniProject": { "id": "5.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 6,
+      "title": "AI Evaluation & Reliability",
+      "audienceHint": "Product Leaders & Technical Builders",
+      "phase": "quality",
+      "lessons": [
+        { "id": "6.1", "title": "Benchmark Basics", "status": "placeholder", "prerequisites": ["1.3"] },
+        { "id": "6.2", "title": "AI Failure Modes", "status": "placeholder", "prerequisites": ["6.1"] },
+        { "id": "6.3", "title": "Core Measurement Metrics", "status": "placeholder", "prerequisites": ["6.1"] },
+        { "id": "6.4", "title": "LLM-as-a-Judge", "status": "placeholder", "prerequisites": ["6.1"] },
+        { "id": "6.5", "title": "Continuous / Production Evaluation & Drift Monitoring", "status": "placeholder", "prerequisites": ["6.1"], "changeFlag": "recast" }
+      ],
+      "miniProject": { "id": "6.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 7,
+      "title": "Spec-Driven Dev & Deep Economics",
+      "audienceHint": "Product Leaders & Technical Builders",
+      "phase": "quality",
+      "lessons": [
+        { "id": "7.1", "title": "Spec-Driven Development (AGENTS.md / rules files)", "status": "placeholder", "prerequisites": ["2.3"], "changeFlag": "update" },
+        { "id": "7.2", "title": "Tool Use Fundamentals", "status": "placeholder", "prerequisites": ["1.2"] },
+        { "id": "7.3", "title": "Model Context Protocol (MCP)", "status": "placeholder", "prerequisites": ["7.2"] },
+        { "id": "7.4", "title": "Deep GenAI Economics", "status": "placeholder", "prerequisites": ["3.2"] }
+      ],
+      "miniProject": { "id": "7.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 8,
+      "title": "Data Foundations & Basic RAG",
+      "audienceHint": "Product Leaders & Technical Builders",
+      "phase": "data",
+      "lessons": [
+        { "id": "8.1", "title": "Vector Spaces (embeddings)", "status": "placeholder", "prerequisites": ["1.2"] },
+        { "id": "8.2", "title": "RAG Architecture", "status": "placeholder", "prerequisites": ["8.1"] },
+        { "id": "8.3", "title": "Data Preparation (chunking)", "status": "placeholder", "prerequisites": ["8.2"] },
+        { "id": "8.4", "title": "Data Governance", "status": "placeholder", "prerequisites": ["8.2", "1.4"] }
+      ],
+      "miniProject": { "id": "8.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 9,
+      "title": "Advanced Retrieval & Search Optimisation",
+      "audienceHint": "Technical Builders only",
+      "phase": "data",
+      "lessons": [
+        { "id": "9.1", "title": "Retrieval Optimisation", "status": "placeholder", "prerequisites": ["8.2"] },
+        { "id": "9.2", "title": "Advanced Search Patterns", "status": "placeholder", "prerequisites": ["9.1"] },
+        { "id": "9.3", "title": "Advanced RAG Tactics (Multi-query, HyDE, PRF; define/replace 'DSD')", "status": "placeholder", "prerequisites": ["9.1"], "changeFlag": "update" },
+        { "id": "9.4", "title": "RAG Evaluation (BERTScore, ROUGE, faithfulness)", "status": "placeholder", "prerequisites": ["9.1", "6.1"] }
+      ],
+      "miniProject": { "id": "9.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 10,
+      "title": "Autonomous Single-Agent Systems",
+      "audienceHint": "Product Leaders & Technical Builders",
+      "phase": "agents",
+      "lessons": [
+        { "id": "10.1", "title": "Agent Design & Logic (ReAct)", "status": "placeholder", "prerequisites": ["7.2"] },
+        { "id": "10.2", "title": "Agent Memory (short-term vs episodic long-term)", "status": "placeholder", "prerequisites": ["10.1", "8.1"], "changeFlag": "reorder" },
+        { "id": "10.3", "title": "Stateful Graph Orchestration (LangGraph)", "status": "placeholder", "prerequisites": ["10.1"] },
+        { "id": "10.4", "title": "Engineering Lifecycle (observability, tracing)", "status": "placeholder", "prerequisites": ["10.1"] },
+        { "id": "10.5", "title": "Execution Controls & Structural Guardrails", "status": "placeholder", "prerequisites": ["10.1"] },
+        { "id": "10.6", "title": "Agent Evaluation", "status": "placeholder", "prerequisites": ["10.1", "6.1"] }
+      ],
+      "miniProject": { "id": "10.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 11,
+      "title": "Multi-Agent Swarms & Corporate Governance",
+      "audienceHint": "Product Leaders, Technical Builders & Legal",
+      "phase": "agents",
+      "lessons": [
+        { "id": "11.1", "title": "Multi-Agent Systems (supervisor/worker, Agent + RAG)", "status": "placeholder", "prerequisites": ["10.1", "8.2"] },
+        { "id": "11.2", "title": "AI Apps Workflows (enterprise examples)", "status": "placeholder", "prerequisites": ["11.1"] },
+        { "id": "11.3", "title": "Agent Governance & Liability", "status": "placeholder", "prerequisites": ["10.1"] },
+        { "id": "11.4", "title": "Deep Corporate Guardrails", "status": "placeholder", "prerequisites": ["1.4"] },
+        { "id": "11.5", "title": "LLM Security & the OWASP LLM Top 10", "status": "placeholder", "prerequisites": ["2.5"], "changeFlag": "new" }
+      ],
+      "miniProject": { "id": "11.project", "title": "TBD", "status": "placeholder" }
+    },
+    {
+      "id": 12,
+      "title": "Model Adaptation & Deep Architecture",
+      "audienceHint": "Technical Builders only",
+      "phase": "deep",
+      "lessons": [
+        { "id": "12.1", "title": "Deep Architectures (Transformers, Attention)", "status": "placeholder", "prerequisites": ["1.2"] },
+        { "id": "12.2", "title": "Alternative Paradigms (Diffusion, World Models)", "status": "placeholder", "prerequisites": ["12.1"] },
+        { "id": "12.3", "title": "Efficiency, Tuning & Accuracy (Quantisation, LoRA)", "status": "placeholder", "prerequisites": ["12.1"] },
+        { "id": "12.4", "title": "Infrastructure Operations (GPU, edge SLM, on-prem)", "status": "placeholder", "prerequisites": ["4.3"] }
+      ],
+      "miniProject": { "id": "12.project", "title": "TBD", "status": "placeholder" }
+    }
+  ]
+}
