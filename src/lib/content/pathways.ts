@@ -3,6 +3,8 @@ import pathwaysData from "@content/pathways.json";
 export type Pathway = {
   id: string;
   name: string;
+  tagline: string;
+  image: string;
   focus: string;
   recommendedLessons: string[];
   includesAllLessons?: boolean;

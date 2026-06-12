@@ -12,23 +12,10 @@
   ],
   "pathways": [
     {
-      "id": "frontline",
-      "name": "Frontline & Knowledge Workers",
-      "focus": "AI everyday productivity: desktop tool mastery, applied prompting, context constraints, computer-use safety, and daily task automation.",
-      "recommendedLessons": [
-        "1.1", "1.2", "1.3", "1.4",
-        "2.1", "2.2", "2.3", "2.4", "2.5", "2.6",
-        "3.1",
-        "5.2", "5.5"
-      ],
-      "capstone": {
-        "title": "Automate one real task in your daily workflow",
-        "portfolioFormat": "productivity-win"
-      }
-    },
-    {
       "id": "business-product",
       "name": "Business & Product Leaders",
+      "tagline": "Lead AI adoption: spot use-cases, design workflows, and prove ROI.",
+      "image": "/pathways/pathway-business-product.webp",
       "focus": "AI product & transformation leadership: use-case discovery, no-code workflow design, baseline evaluation, deep economics, vendor selection, and agent product logic.",
       "recommendedLessons": [
         "1.1", "1.2", "1.3", "1.4",
@@ -50,6 +37,8 @@
     {
       "id": "technical-builders",
       "name": "Technical Builders",
+      "tagline": "Build the full stack: eval harnesses, RAG pipelines, tools, and agents.",
+      "image": "/pathways/pathway-technical-builders.webp",
       "focus": "AI engineering & core data (full stack): testing harnesses, vector pipelines, tool protocols (MCP), stateful graphs, and model math.",
       "recommendedLessons": [
         "1.1", "1.2", "1.3", "1.4",
@@ -72,8 +61,27 @@
       }
     },
     {
+      "id": "frontline",
+      "name": "Frontline & Knowledge Workers",
+      "tagline": "Master everyday AI: sharp prompting, smart tools, and daily automation.",
+      "image": "/pathways/pathway-frontline.webp",
+      "focus": "AI everyday productivity: desktop tool mastery, applied prompting, context constraints, computer-use safety, and daily task automation.",
+      "recommendedLessons": [
+        "1.1", "1.2", "1.3", "1.4",
+        "2.1", "2.2", "2.3", "2.4", "2.5", "2.6",
+        "3.1",
+        "5.2", "5.5"
+      ],
+      "capstone": {
+        "title": "Automate one real task in your daily workflow",
+        "portfolioFormat": "productivity-win"
+      }
+    },
+    {
       "id": "legal-risk",
       "name": "Legal, Risk & Governance",
+      "tagline": "Govern AI safely: acceptable use, data protection, and agent liability.",
+      "image": "/pathways/pathway-legal-risk.webp",
       "focus": "AI safety & guardrails: acceptable use, prompt data-leakage protection, dataset access privileges, shadow-AI mitigation, and autonomous-agent liability.",
       "recommendedLessons": [
         "1.1", "1.2", "1.3", "1.4",
