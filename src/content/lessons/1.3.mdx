@@ -1,0 +1,97 @@
+export const meta = {
+  id: "1.3",
+  summary: "Where LLMs shine vs. where they fail, why hallucinations happen, and how to mitigate.",
+  interactiveIds: ["spot-the-hallucination"],
+};
+
+<Hook>
+Ask an AI for a source and it may invent one - perfectly formatted, completely fake.
+</Hook>
+
+<Example title="A real case">
+
+Lawyers filed a brief citing court cases an AI generated. The cases didn&rsquo;t exist. They were sanctioned. The model wasn&rsquo;t lying on purpose - it was doing exactly what it does: producing plausible-sounding text.
+
+</Example>
+
+<HowItWorks>What LLMs can and can&rsquo;t do</HowItWorks>
+
+The big picture: LLMs are brilliant at working with language, and shaky whenever an answer has to be exactly, verifiably true.
+
+<ZoneBoard
+  green={[
+    "Drafting & rewriting - turn 5 messy bullets into a polished client email.",
+    "Summarizing - condense a 40-message thread into 5 takeaways.",
+    "Explaining simply - 'explain a mortgage to a 12-year-old.'",
+    "Brainstorming - 20 product name ideas.",
+    "Translating & reformatting - notes into a clean table.",
+    "Working with text you give it - pull action items from a transcript.",
+  ]}
+  red={[
+    "Exact facts from memory - 'what was our Q3 revenue?'",
+    "Fresh or real-time info - 'what's in the news today?'",
+    "Precise math & counting - 'how many r's in strawberry?'",
+    "Your private/internal data - it doesn't know your wiki or CRM.",
+    "Strict multi-step logic - a tricky scheduling puzzle in one shot.",
+    "Knowing its own limits - it answers anyway instead of 'I don't know.'",
+  ]}
+/>
+
+The pattern: **language tasks** = use freely (and skim). **Exact-truth tasks** = verify, or give it the facts.
+
+<HowItWorks>Why these limits exist</HowItWorks>
+
+### 1. Hallucination
+
+<Term>Hallucination</Term> happens because the model predicts plausible tokens. When it lacks a fact, it fills the gap with something that looks right - there&rsquo;s no built-in &ldquo;I checked this&rdquo; step. Highest risk: niche or recent topics, exact numbers, names, citations.
+
+### 2. Bias
+
+Trained on human-written internet text, so it absorbs human <Term>Bias</Term> and over-represents majority views. Ask it to &ldquo;describe a nurse and a CEO&rdquo; and, unprompted, it may default the nurse to &ldquo;she&rdquo; and the CEO to &ldquo;he.&rdquo;
+
+### 3. Knowledge cutoff & no live data
+
+It only &ldquo;knows&rdquo; up to its <Term>Knowledge cutoff</Term>, and can&rsquo;t see today&rsquo;s news or your private documents unless connected to tools/search (Level 8, RAG).
+
+### 4. Weak at exact math & strict logic
+
+It&rsquo;s matching language patterns, not running a calculator, so it can fumble arithmetic or &ldquo;count the letters&rdquo; tasks - unless it works step by step or uses tools.
+
+### 5. Context limits
+
+It can only hold so much text at once; very long inputs get truncated or key details get lost in the middle. Its working memory is the <Term k="context window">context window</Term>.
+
+### 6. AI slop
+
+Mass, low-effort generated content. Beyond being low value, <Term k="AI slop">AI slop</Term> pollutes the web - and future training data - creating a feedback loop.
+
+<Callout type="warning" title="Confidence is not correctness">
+The confidence needle can pin high while the answer is wrong. Read a confident tone as style, not proof.
+</Callout>
+
+<HowItWorks>How to mitigate</HowItWorks>
+
+- **Verify** anything that matters against a trusted source (Lesson 2.6 teaches the technique).
+- **Give it the facts** - paste the source or use retrieval - instead of trusting its memory.
+- For logic/math, **ask for steps** or use a reasoning model/tool.
+- Read confident tone as style, not proof.
+
+<Expand>
+
+- &ldquo;Calibration&rdquo; = whether a model&rsquo;s confidence matches its accuracy; LLMs are often over-confident.
+- &ldquo;Sycophancy&rdquo;: models tend to agree with you - watch for it when you lead the question.
+- Asking the model to critique its own answer can surface errors (a preview of self-evaluation in Level 6).
+
+</Expand>
+
+<Interactive id="spot-the-hallucination" />
+
+<Quiz lessonId="1.3" />
+
+<Recap
+  items={[
+    "LLMs predict plausible text, so they can hallucinate, carry bias, and miss recent or private facts.",
+    "By default they're weak at exact math/counting and limited by context size.",
+    "Verify what matters, supply the facts, and never mistake confidence for correctness.",
+  ]}
+/>
