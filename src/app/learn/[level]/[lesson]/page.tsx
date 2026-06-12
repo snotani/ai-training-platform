@@ -182,7 +182,7 @@ export default async function LessonPage({
 
   if (published) {
     return (
-      <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <LessonReader>{content}</LessonReader>
       </div>
     );
