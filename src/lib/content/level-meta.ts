@@ -36,6 +36,94 @@ export const lessonCovers: Record<string, string> = {
   "1.project": "/covers/lesson-1-project.png",
 };
 
+// One-line "what you'll learn" blurbs for each lesson/mini-project card.
+export const lessonBlurbs: Record<string, string> = {
+  // L1 - Generative AI Literacy
+  "1.1": "How modern AI differs from traditional software.",
+  "1.2": "How language models actually predict text.",
+  "1.3": "What today's AI can and can't do.",
+  "1.4": "Simple rules for safe AI use at work.",
+  "1.project": "Map where AI fits in your own role.",
+  // L2 - Applied Prompt Engineering & Interaction
+  "2.1": "How prompts are read, token by token.",
+  "2.2": "The building blocks of an effective prompt.",
+  "2.3": "Chain-of-thought, few-shot, and persona techniques.",
+  "2.4": "Working within the model's context window.",
+  "2.5": "Avoid data leakage and prompt injection.",
+  "2.6": "Fact-check AI output before you trust it.",
+  "2.project": "Build and test a reusable prompt.",
+  // L3 - The AI Economy & Workplace
+  "3.1": "Fit AI smoothly into your daily work.",
+  "3.2": "What generative AI really costs to run.",
+  "3.3": "Find high-value places to apply AI.",
+  "3.4": "Roll out AI and tame shadow usage.",
+  "3.project": "Pitch an AI use case with its ROI.",
+  // L4 - Next-Gen Model Paradigms
+  "4.1": "How reasoning models think before answering.",
+  "4.2": "Working with image, audio, and text together.",
+  "4.3": "Choosing between open, API, and small models.",
+  "4.4": "Build vs buy, and evaluating vendors.",
+  "4.project": "Recommend the right model for a use case.",
+  // L5 - AI Automation Workflows
+  "5.1": "Design automations that actually hold up.",
+  "5.2": "Automate work with Zapier and Make.",
+  "5.3": "Connect tools using APIs and webhooks.",
+  "5.4": "Add human checkpoints to AI workflows.",
+  "5.5": "Agents that operate your desktop apps.",
+  "5.6": "Measure the hours your workflows save.",
+  "5.project": "Ship an automation that saves real time.",
+  // L6 - AI Evaluation & Reliability
+  "6.1": "What benchmarks do and don't tell you.",
+  "6.2": "Recognise how and why AI breaks.",
+  "6.3": "The metrics that measure AI quality.",
+  "6.4": "Use a model to grade model output.",
+  "6.5": "Catch drift with ongoing evaluation.",
+  "6.project": "Build an eval suite for an AI feature.",
+  // L7 - Spec-Driven Dev & Deep Economics
+  "7.1": "Steer AI with specs and rules files.",
+  "7.2": "Let models call tools and functions.",
+  "7.3": "Connect AI to tools via MCP.",
+  "7.4": "Optimise cost, latency, and throughput.",
+  "7.project": "Wire a model up to real tools.",
+  // L8 - Data Foundations & Basic RAG
+  "8.1": "How embeddings turn meaning into numbers.",
+  "8.2": "Ground AI answers in your own documents.",
+  "8.3": "Chunk and clean data for retrieval.",
+  "8.4": "Keep retrieval data secure and compliant.",
+  "8.project": "Build a basic RAG over your docs.",
+  // L9 - Advanced Retrieval & Search Optimisation
+  "9.1": "Make retrieval faster and more precise.",
+  "9.2": "Hybrid and re-ranked search strategies.",
+  "9.3": "Multi-query, HyDE, and feedback retrieval.",
+  "9.4": "Measure retrieval relevance and faithfulness.",
+  "9.project": "Tune a RAG pipeline for accuracy.",
+  // L10 - Autonomous Single-Agent Systems
+  "10.1": "Design agents that reason, then act.",
+  "10.2": "Give agents short- and long-term memory.",
+  "10.3": "Orchestrate agent state with LangGraph.",
+  "10.4": "Trace and observe agents in production.",
+  "10.5": "Keep agents inside safe boundaries.",
+  "10.6": "Test whether your agent actually works.",
+  "10.project": "Build an agent that finishes a task.",
+  // L11 - Multi-Agent Swarms & Corporate Governance
+  "11.1": "Coordinate supervisor and worker agents.",
+  "11.2": "Patterns from real enterprise AI apps.",
+  "11.3": "Who's accountable when agents act.",
+  "11.4": "Enterprise-grade controls for AI systems.",
+  "11.5": "Defend against the top LLM threats.",
+  "11.project": "Design a governed multi-agent system.",
+  // L12 - Model Adaptation & Deep Architecture
+  "12.1": "Inside transformers and the attention mechanism.",
+  "12.2": "Diffusion and world models, explained.",
+  "12.3": "Quantisation and LoRA fine-tuning.",
+  "12.4": "Run models on GPU, edge, and on-prem.",
+  "12.project": "Plan the infrastructure for a deployment.",
+};
+
+export function lessonBlurb(id: string): string {
+  return lessonBlurbs[id] ?? "";
+}
+
 export function levelHook(id: number): string {
   return levelMeta[id]?.hook ?? "";
 }

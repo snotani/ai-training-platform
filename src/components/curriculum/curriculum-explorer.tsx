@@ -13,7 +13,7 @@ import {
 import { cn } from "@/lib/utils";
 import { levels, getPhase, type Level } from "@/lib/content/curriculum";
 import { pathways } from "@/lib/content/pathways";
-import { levelHook } from "@/lib/content/level-meta";
+import { levelHook, lessonBlurb } from "@/lib/content/level-meta";
 import { lessonArt, type ArtSpec } from "@/lib/content/lesson-art-map";
 import { LessonArt } from "@/components/lesson/lesson-art";
 import { QuizDialog, hasQuiz } from "@/components/lesson/quiz-dialog";
@@ -43,6 +43,7 @@ const PHASE_GRADIENT: Record<string, string> = {
 type LessonCardData = {
   id: string;
   title: string;
+  blurb?: string;
   art: ArtSpec;
   difficulty?: string;
   minutes?: number;
@@ -109,6 +110,11 @@ function LessonCard({
             </div>
           )}
           <h3 className="font-heading text-sm leading-snug font-semibold">{data.title}</h3>
+          {data.blurb && (
+            <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
+              {data.blurb}
+            </p>
+          )}
         </div>
       </Link>
 
@@ -159,6 +165,7 @@ function LevelGroup({
   const cards: LessonCardData[] = level.lessons.map((lesson) => ({
     id: lesson.id,
     title: lesson.title,
+    blurb: lessonBlurb(lesson.id),
     art: lessonArt(lesson.id, level.id),
     difficulty: lesson.difficulty,
     minutes: lesson.estMinutes,
@@ -168,6 +175,7 @@ function LevelGroup({
     cards.push({
       id: level.miniProject.id,
       title: level.miniProject.title,
+      blurb: lessonBlurb(level.miniProject.id),
       art: lessonArt(level.miniProject.id, level.id),
       minutes: level.miniProject.estMinutes,
       published: level.miniProject.status === "published",
