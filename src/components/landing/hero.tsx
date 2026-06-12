@@ -9,12 +9,12 @@ import {
   useTransform,
   type MotionValue,
 } from "motion/react";
+import Image from "next/image";
 import { ArrowRightIcon, ChevronDownIcon, SparklesIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { LinkButton } from "@/components/link-button";
 import { Aurora } from "@/components/landing/aurora";
-import { LessonArt, type Motif } from "@/components/lesson/lesson-art";
 
 const container = {
   hidden: {},
@@ -62,8 +62,8 @@ function RotatingPhrase() {
 }
 
 type FloatCard = {
-  motif: Motif;
-  accent: string;
+  src: string;
+  alt: string;
   className: string;
   depth: number;
   delay: number;
@@ -71,12 +71,12 @@ type FloatCard = {
 };
 
 const FLOATERS: FloatCard[] = [
-  { motif: "tokens", accent: "indigo", className: "left-[3%] top-[15%] w-40 hidden lg:block", depth: -70, delay: 0, rotate: -7 },
-  { motif: "network", accent: "violet", className: "right-[4%] top-[11%] w-44 hidden lg:block", depth: -130, delay: 0.15, rotate: 7 },
-  { motif: "robot", accent: "blue", className: "left-[6%] top-[55%] w-36 hidden lg:block", depth: -160, delay: 0.3, rotate: 4 },
-  { motif: "gauge", accent: "cyan", className: "right-[6%] top-[58%] w-40 hidden lg:block", depth: -60, delay: 0.2, rotate: -5 },
-  { motif: "chip", accent: "fuchsia", className: "left-[19%] bottom-[9%] w-32 hidden xl:block", depth: -110, delay: 0.4, rotate: 7 },
-  { motif: "rocket", accent: "teal", className: "right-[18%] bottom-[7%] w-36 hidden xl:block", depth: -90, delay: 0.35, rotate: -8 },
+  { src: "/hero/hero-tokens.webp", alt: "Tokens", className: "left-[3%] top-[15%] w-40 hidden lg:block", depth: -70, delay: 0, rotate: -7 },
+  { src: "/hero/hero-network.webp", alt: "Neural network", className: "right-[4%] top-[11%] w-44 hidden lg:block", depth: -130, delay: 0.15, rotate: 7 },
+  { src: "/hero/hero-robot.webp", alt: "AI agent", className: "left-[6%] top-[55%] w-36 hidden lg:block", depth: -160, delay: 0.3, rotate: 4 },
+  { src: "/hero/hero-gauge.webp", alt: "Evaluation", className: "right-[6%] top-[58%] w-40 hidden lg:block", depth: -60, delay: 0.2, rotate: -5 },
+  { src: "/hero/hero-chip.webp", alt: "Compute", className: "left-[19%] bottom-[9%] w-32 hidden xl:block", depth: -110, delay: 0.4, rotate: 7 },
+  { src: "/hero/hero-rocket.webp", alt: "Ship to production", className: "right-[18%] bottom-[7%] w-36 hidden xl:block", depth: -90, delay: 0.35, rotate: -8 },
 ];
 
 function FloatingArt({
@@ -107,8 +107,14 @@ function FloatingArt({
         }
         className="overflow-hidden rounded-2xl border border-white/15 shadow-xl ring-1 ring-black/5"
       >
-        <div className="aspect-[16/10] w-full opacity-90">
-          <LessonArt motif={card.motif} accent={card.accent} seed={`hero-${card.motif}`} />
+        <div className="relative aspect-[16/10] w-full">
+          <Image
+            src={card.src}
+            alt={card.alt}
+            fill
+            sizes="(min-width: 1280px) 11rem, 10rem"
+            className="object-cover"
+          />
         </div>
       </motion.div>
     </motion.div>
@@ -136,7 +142,7 @@ export function Hero() {
 
       {/* Floating animated art */}
       {FLOATERS.map((card) => (
-        <FloatingArt key={card.motif} card={card} scrollY={scrollY} reduced={reduced} />
+        <FloatingArt key={card.src} card={card} scrollY={scrollY} reduced={reduced} />
       ))}
 
       <motion.div
@@ -183,7 +189,7 @@ export function Hero() {
               </LinkButton>
             </motion.div>
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              <LinkButton href="/learn" variant="outline" size="lg" className="h-11 px-5 text-sm">
+              <LinkButton href="#curriculum" variant="outline" size="lg" className="h-11 px-5 text-sm">
                 Explore the curriculum
               </LinkButton>
             </motion.div>
