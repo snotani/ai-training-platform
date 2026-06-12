@@ -127,11 +127,86 @@ export function lessonBlurb(id: string): string {
 // AI-generated, lesson-specific cover images (cartoon / 3D character style).
 // Lessons not listed here fall back to the animated SVG LessonArt.
 export const lessonImages: Record<string, string> = {
-  "1.1": "/lessons/lesson-1-1.png",
-  "1.2": "/lessons/lesson-1-2.png",
-  "1.3": "/lessons/lesson-1-3.png",
-  "1.4": "/lessons/lesson-1-4.png",
-  "1.project": "/lessons/lesson-1-project.png",
+  // L1 - Generative AI Literacy
+  "1.1": "/lessons/lesson-1-1.webp",
+  "1.2": "/lessons/lesson-1-2.webp",
+  "1.3": "/lessons/lesson-1-3.webp",
+  "1.4": "/lessons/lesson-1-4.webp",
+  "1.project": "/lessons/lesson-1-project.webp",
+  // L2 - Applied Prompt Engineering & Interaction
+  "2.1": "/lessons/lesson-2-1.webp",
+  "2.2": "/lessons/lesson-2-2.webp",
+  "2.3": "/lessons/lesson-2-3.webp",
+  "2.4": "/lessons/lesson-2-4.webp",
+  "2.5": "/lessons/lesson-2-5.webp",
+  "2.6": "/lessons/lesson-2-6.webp",
+  "2.project": "/lessons/lesson-2-project.webp",
+  // L3 - The AI Economy & Workplace
+  "3.1": "/lessons/lesson-3-1.webp",
+  "3.2": "/lessons/lesson-3-2.webp",
+  "3.3": "/lessons/lesson-3-3.webp",
+  "3.4": "/lessons/lesson-3-4.webp",
+  "3.project": "/lessons/lesson-3-project.webp",
+  // L4 - Next-Gen Model Paradigms
+  "4.1": "/lessons/lesson-4-1.webp",
+  "4.2": "/lessons/lesson-4-2.webp",
+  "4.3": "/lessons/lesson-4-3.webp",
+  "4.4": "/lessons/lesson-4-4.webp",
+  "4.project": "/lessons/lesson-4-project.webp",
+  // L5 - AI Automation Workflows
+  "5.1": "/lessons/lesson-5-1.webp",
+  "5.2": "/lessons/lesson-5-2.webp",
+  "5.3": "/lessons/lesson-5-3.webp",
+  "5.4": "/lessons/lesson-5-4.webp",
+  "5.5": "/lessons/lesson-5-5.webp",
+  "5.6": "/lessons/lesson-5-6.webp",
+  "5.project": "/lessons/lesson-5-project.webp",
+  // L6 - AI Evaluation & Reliability
+  "6.1": "/lessons/lesson-6-1.webp",
+  "6.2": "/lessons/lesson-6-2.webp",
+  "6.3": "/lessons/lesson-6-3.webp",
+  "6.4": "/lessons/lesson-6-4.webp",
+  "6.5": "/lessons/lesson-6-5.webp",
+  "6.project": "/lessons/lesson-6-project.webp",
+  // L7 - Spec-Driven Dev & Deep Economics
+  "7.1": "/lessons/lesson-7-1.webp",
+  "7.2": "/lessons/lesson-7-2.webp",
+  "7.3": "/lessons/lesson-7-3.webp",
+  "7.4": "/lessons/lesson-7-4.webp",
+  "7.project": "/lessons/lesson-7-project.webp",
+  // L8 - Data Foundations & Basic RAG
+  "8.1": "/lessons/lesson-8-1.webp",
+  "8.2": "/lessons/lesson-8-2.webp",
+  "8.3": "/lessons/lesson-8-3.webp",
+  "8.4": "/lessons/lesson-8-4.webp",
+  "8.project": "/lessons/lesson-8-project.webp",
+  // L9 - Advanced Retrieval & Search Optimisation
+  "9.1": "/lessons/lesson-9-1.webp",
+  "9.2": "/lessons/lesson-9-2.webp",
+  "9.3": "/lessons/lesson-9-3.webp",
+  "9.4": "/lessons/lesson-9-4.webp",
+  "9.project": "/lessons/lesson-9-project.webp",
+  // L10 - Autonomous Single-Agent Systems
+  "10.1": "/lessons/lesson-10-1.webp",
+  "10.2": "/lessons/lesson-10-2.webp",
+  "10.3": "/lessons/lesson-10-3.webp",
+  "10.4": "/lessons/lesson-10-4.webp",
+  "10.5": "/lessons/lesson-10-5.webp",
+  "10.6": "/lessons/lesson-10-6.webp",
+  "10.project": "/lessons/lesson-10-project.webp",
+  // L11 - Multi-Agent Swarms & Corporate Governance
+  "11.1": "/lessons/lesson-11-1.webp",
+  "11.2": "/lessons/lesson-11-2.webp",
+  "11.3": "/lessons/lesson-11-3.webp",
+  "11.4": "/lessons/lesson-11-4.webp",
+  "11.5": "/lessons/lesson-11-5.webp",
+  "11.project": "/lessons/lesson-11-project.webp",
+  // L12 - Model Adaptation & Deep Architecture
+  "12.1": "/lessons/lesson-12-1.webp",
+  "12.2": "/lessons/lesson-12-2.webp",
+  "12.3": "/lessons/lesson-12-3.webp",
+  "12.4": "/lessons/lesson-12-4.webp",
+  "12.project": "/lessons/lesson-12-project.webp",
 };
 
 export function lessonImage(id: string): string | undefined {
