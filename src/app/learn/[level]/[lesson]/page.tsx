@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowLeftIcon,
   ArrowRightIcon,
@@ -18,6 +19,7 @@ import {
 } from "@/lib/content/curriculum";
 import { hasLessonContent, LESSON_META } from "@/content/lessons";
 import { lessonArt } from "@/lib/content/lesson-art-map";
+import { lessonImage } from "@/lib/content/level-meta";
 import { LessonArt } from "@/components/lesson/lesson-art";
 import { Badge } from "@/components/ui/badge";
 import { LessonBody } from "@/components/lesson/lesson-body";
@@ -94,6 +96,7 @@ export default async function LessonPage({
   const published = r.status === "published" && hasLessonContent(lesson);
   const summary = LESSON_META[lesson]?.summary;
   const art = lessonArt(lesson, r.level.id);
+  const image = lessonImage(lesson);
 
   const content = (
     <>
@@ -106,7 +109,18 @@ export default async function LessonPage({
       </Link>
 
       <div className="relative mt-4 aspect-[2/1] overflow-hidden rounded-2xl border sm:aspect-[5/2]">
-        <LessonArt motif={art.motif} accent={art.accent} seed={`lesson-${lesson}`} />
+        {image ? (
+          <Image
+            src={image}
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className="object-cover"
+          />
+        ) : (
+          <LessonArt motif={art.motif} accent={art.accent} seed={`lesson-${lesson}`} />
+        )}
       </div>
 
       <div className="mt-5 flex flex-wrap items-center gap-2">

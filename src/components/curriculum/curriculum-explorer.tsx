@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRightIcon,
   CheckCircle2Icon,
@@ -13,7 +14,7 @@ import {
 import { cn } from "@/lib/utils";
 import { levels, getPhase, type Level } from "@/lib/content/curriculum";
 import { pathways } from "@/lib/content/pathways";
-import { levelHook, lessonBlurb } from "@/lib/content/level-meta";
+import { levelHook, lessonBlurb, lessonImage } from "@/lib/content/level-meta";
 import { lessonArt, type ArtSpec } from "@/lib/content/lesson-art-map";
 import { LessonArt } from "@/components/lesson/lesson-art";
 import { QuizDialog, hasQuiz } from "@/components/lesson/quiz-dialog";
@@ -44,6 +45,7 @@ type LessonCardData = {
   id: string;
   title: string;
   blurb?: string;
+  image?: string;
   art: ArtSpec;
   difficulty?: string;
   minutes?: number;
@@ -77,9 +79,19 @@ function LessonCard({
     >
       <Link href={href} className="flex flex-1 flex-col">
         <div className="relative aspect-[16/9] overflow-hidden bg-muted">
-          <div className="size-full transition-transform duration-500 group-hover:scale-105">
-            <LessonArt motif={data.art.motif} accent={data.art.accent} seed={data.id} />
-          </div>
+          {data.image ? (
+            <Image
+              src={data.image}
+              alt=""
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="size-full transition-transform duration-500 group-hover:scale-105">
+              <LessonArt motif={data.art.motif} accent={data.art.accent} seed={data.id} />
+            </div>
+          )}
           {data.isProject && (
             <span className="absolute top-2.5 left-2.5 inline-flex items-center gap-1 rounded-full bg-amber-500/90 px-2 py-0.5 text-[0.7rem] font-medium text-white shadow">
               <FlagIcon className="size-3" /> Project
@@ -166,6 +178,7 @@ function LevelGroup({
     id: lesson.id,
     title: lesson.title,
     blurb: lessonBlurb(lesson.id),
+    image: lessonImage(lesson.id),
     art: lessonArt(lesson.id, level.id),
     difficulty: lesson.difficulty,
     minutes: lesson.estMinutes,
@@ -176,6 +189,7 @@ function LevelGroup({
       id: level.miniProject.id,
       title: level.miniProject.title,
       blurb: lessonBlurb(level.miniProject.id),
+      image: lessonImage(level.miniProject.id),
       art: lessonArt(level.miniProject.id, level.id),
       minutes: level.miniProject.estMinutes,
       published: level.miniProject.status === "published",

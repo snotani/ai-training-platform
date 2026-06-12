@@ -124,6 +124,20 @@ export function lessonBlurb(id: string): string {
   return lessonBlurbs[id] ?? "";
 }
 
+// AI-generated, lesson-specific cover images (cartoon / 3D character style).
+// Lessons not listed here fall back to the animated SVG LessonArt.
+export const lessonImages: Record<string, string> = {
+  "1.1": "/lessons/lesson-1-1.png",
+  "1.2": "/lessons/lesson-1-2.png",
+  "1.3": "/lessons/lesson-1-3.png",
+  "1.4": "/lessons/lesson-1-4.png",
+  "1.project": "/lessons/lesson-1-project.png",
+};
+
+export function lessonImage(id: string): string | undefined {
+  return lessonImages[id];
+}
+
 export function levelHook(id: number): string {
   return levelMeta[id]?.hook ?? "";
 }
