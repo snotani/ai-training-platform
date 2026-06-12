@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { HelpCircleIcon } from "lucide-react";
+import { HelpCircleIcon, LightbulbIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -45,7 +45,7 @@ export function QuizDialog({
           <Button className={cn("h-10 w-full justify-center gap-2", className)} />
         }
       >
-        <HelpCircleIcon />
+        <LightbulbIcon />
         {label}
       </DialogTrigger>
       <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-lg">
