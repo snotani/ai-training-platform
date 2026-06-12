@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import {
+  CheckCircle2Icon,
   CheckIcon,
   HelpCircleIcon,
   RotateCcwIcon,
@@ -14,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { quizzes, type QuizQuestion } from "@/content/quizzes";
 import { useLessonContext } from "@/components/lesson/lesson-context";
+import { isQuizPassed, useLessonCompletion } from "@/lib/progress/use-lesson-completion";
 
 const LETTERS = ["A", "B", "C", "D", "E"];
 
@@ -30,6 +32,8 @@ export function Quiz({
 }) {
   const questions = questionsProp ?? (lessonId ? quizzes[lessonId] : undefined) ?? [];
   const ctx = useLessonContext();
+  const targetLessonId = lessonId ?? ctx?.lessonId ?? "";
+  const { complete } = useLessonCompletion(targetLessonId);
   const [answers, setAnswers] = React.useState<Record<number, number>>({});
   const [checked, setChecked] = React.useState(false);
 
@@ -41,10 +45,16 @@ export function Quiz({
   );
   const allAnswered = questions.every((_, i) => answers[i] !== undefined);
   const perfect = score === questions.length;
+  const passed = isQuizPassed(score, questions.length);
 
   function check() {
     setChecked(true);
     ctx?.reportQuiz(score, questions.length);
+    // Passing the quiz marks the lesson complete and tracks progress
+    // (cached locally for guests, recorded server-side when signed in).
+    if (targetLessonId && isQuizPassed(score, questions.length)) {
+      void complete({ score, total: questions.length });
+    }
   }
 
   function reset() {
@@ -147,6 +157,13 @@ export function Quiz({
         })}
       </ol>
 
+      {checked && passed && (
+        <div className="mt-5 flex items-center gap-2 rounded-xl border border-emerald-500/30 bg-emerald-500/[0.08] px-3.5 py-2.5 text-sm font-medium text-emerald-700 dark:text-emerald-400">
+          <CheckCircle2Icon className="size-4 shrink-0" />
+          Lesson marked complete - progress saved.
+        </div>
+      )}
+
       <div className="mt-6 flex items-center justify-between gap-4 border-t pt-4">
         {checked ? (
           <>
@@ -159,8 +176,8 @@ export function Quiz({
                 <span className="text-muted-foreground">
                   {perfect
                     ? "- flawless! "
-                    : score >= questions.length / 2
-                      ? "- nicely done."
+                    : passed
+                      ? "- passed, nicely done."
                       : "- review and try again."}
                 </span>
               </p>
