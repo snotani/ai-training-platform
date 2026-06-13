@@ -56,6 +56,7 @@ flowchart TB
 - **How it learns:** a human picks the useful columns - <Term k="Feature engineering">&ldquo;features&rdquo; like income, age, past purchases</Term> - and the model finds the relationship.
 - **Output:** a number or a label - &ldquo;85% likely to churn&rdquo;, &ldquo;fraud / not fraud&rdquo;.
 - **Names you&rsquo;ll hear:** logistic regression, decision trees, random forests, gradient boosting.
+- **Where you&rsquo;ve seen it:** your bank texting &ldquo;Did you just spend $400? Reply YES/NO&rdquo; - it scored one tidy row of your transaction (amount, location, time) and flagged it as odd.
 
 ### 2. Deep Learning
 
@@ -63,6 +64,7 @@ flowchart TB
 - **How it learns:** feed it raw, messy data (pixels, audio, text) and it discovers the useful features by itself - no manual feature engineering.
 - **Output:** still usually a label/number, but on unstructured data - &ldquo;this scan shows a tumor&rdquo;.
 - **Cost:** needs lots of data and serious compute (GPUs).
+- **Where you&rsquo;ve seen it:** Face ID unlocking your phone, or Google Photos finding every pic of your dog - raw pixels go in, &ldquo;yep, that&rsquo;s them&rdquo; comes out.
 
 ### 3. Generative AI
 
@@ -70,6 +72,18 @@ flowchart TB
 - **How it learns:** trained on enormous amounts of unlabelled data by predicting missing/next pieces (&ldquo;self-supervised&rdquo;).
 - **Output:** new content - text, images, audio, video, code.
 - **Superpower:** one general model handles many tasks it was never explicitly trained for.
+- **Where you&rsquo;ve seen it:** ChatGPT drafting your email or writing an Instagram caption - you type a prompt and it creates words that never existed before.
+
+<Visual caption="Where you've met each one this week: every type maps to something you already use.">
+
+```mermaid
+flowchart LR
+  ml["Traditional ML"] --> mlx["Bank fraud alert text"]
+  dl["Deep Learning"] --> dlx["Face ID unlocks your phone"]
+  gen["Generative AI"] --> genx["ChatGPT writes your email"]
+```
+
+</Visual>
 
 <Callout type="tip" title="One pile of reviews, three jobs">
 **Traditional ML** predicts a 1-5 satisfaction score from a table. **Deep Learning** reads the raw text and classifies each review positive / negative / mixed. **Generative AI** writes a personalized reply to each unhappy reviewer. Same data - predict, classify, create.
@@ -89,6 +103,7 @@ flowchart TB
         { label: "Data + compute", value: "Low" },
         { label: "Explain the why?", value: "Often yes" },
         { label: "Best for", value: "Predicting from tidy data" },
+        { label: "Everyday example", value: "Bank fraud text alert" },
       ],
     },
     {
@@ -101,6 +116,7 @@ flowchart TB
         { label: "Data + compute", value: "High" },
         { label: "Explain the why?", value: "Hard" },
         { label: "Best for", value: "Perception tasks" },
+        { label: "Everyday example", value: "Face ID / photo search" },
       ],
     },
     {
@@ -114,6 +130,7 @@ flowchart TB
         { label: "Data + compute", value: "Very high" },
         { label: "Explain the why?", value: "Hard" },
         { label: "Best for", value: "Creating, summarizing, reasoning over language" },
+        { label: "Everyday example", value: "ChatGPT drafts a reply" },
       ],
     },
   ]}
