@@ -30,8 +30,8 @@
     "note": "A freeze protects a streak for one missed day."
   },
   "leaderboards": [
-    { "id": "team", "name": "Team / Department", "scope": ["weekly", "all-time"], "primary": true, "note": "Department-vs-department keeps it collaborative, not anxiety-inducing." },
-    { "id": "individual", "name": "Individual", "scope": ["weekly", "all-time"], "primary": false, "optInPrivacy": true }
+    { "id": "region", "name": "Region", "scope": ["weekly", "all-time"], "primary": true, "note": "Region-vs-region keeps public competition collaborative, not anxiety-inducing." },
+    { "id": "individual", "name": "Individual", "scope": ["weekly", "all-time"], "primary": false, "optInPrivacy": true, "filters": ["league"], "note": "League filter buckets learners by XP rank tier so newcomers compete against peers." }
   ],
   "spacedRepetition": {
     "enabled": true,

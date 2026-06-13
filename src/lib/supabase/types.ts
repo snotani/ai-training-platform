@@ -28,7 +28,7 @@ export type Database = {
         Row: {
           id: string;
           display_name: string | null;
-          department_id: string | null;
+          region: string | null;
           avatar_url: string | null;
           xp: number;
           pathway_id: string | null;
@@ -39,7 +39,7 @@ export type Database = {
         Insert: {
           id: string;
           display_name?: string | null;
-          department_id?: string | null;
+          region?: string | null;
           avatar_url?: string | null;
           xp?: number;
           pathway_id?: string | null;
@@ -200,7 +200,7 @@ export type Database = {
         Row: {
           id: string;
           display_name: string;
-          department_id: string | null;
+          region: string | null;
           avatar_url: string | null;
           xp: number;
           weekly_xp: number;
@@ -208,7 +208,7 @@ export type Database = {
         Insert: {
           id?: string;
           display_name: string;
-          department_id?: string | null;
+          region?: string | null;
           avatar_url?: string | null;
           xp?: number;
           weekly_xp?: number;
@@ -222,7 +222,7 @@ export type Database = {
         Row: {
           id: string | null;
           display_name: string | null;
-          department_id: string | null;
+          region: string | null;
           avatar_url: string | null;
           total_xp: number | null;
           weekly_xp: number | null;
@@ -230,11 +230,9 @@ export type Database = {
         };
         Relationships: [];
       };
-      leaderboard_team: {
+      leaderboard_region: {
         Row: {
-          department_id: string | null;
-          department_name: string | null;
-          slug: string | null;
+          region: string | null;
           total_xp: number | null;
           weekly_xp: number | null;
           members: number | null;

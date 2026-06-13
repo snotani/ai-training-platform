@@ -19,12 +19,12 @@ import {
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/components/auth/auth-context";
 import { useProgressStore } from "@/lib/progress/store";
-import { BADGE_DEFS } from "@/lib/gamification/config";
+import { BADGE_DEFS, rankForXp } from "@/lib/gamification/config";
+import { REGIONS } from "@/lib/gamification/regions";
 import { getPathway } from "@/lib/content/pathways";
 import {
-  getDepartments,
   getProfileSummary,
-  updateMyDepartment,
+  updateMyRegion,
   type ProfileSummary,
 } from "@/lib/gamification/profile";
 import { RankRing } from "@/components/profile/rank-ring";
@@ -98,7 +98,6 @@ export function ProfileDashboard() {
   const completed = hydrated ? Object.keys(lessons).length : 0;
 
   const [summary, setSummary] = React.useState<ProfileSummary | null>(null);
-  const [departments, setDepartments] = React.useState<{ id: string; name: string }[]>([]);
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -108,21 +107,23 @@ export function ProfileDashboard() {
       return;
     }
     setLoading(true);
-    Promise.all([getProfileSummary(), getDepartments()]).then(([s, d]) => {
+    getProfileSummary().then((s) => {
       if (cancelled) return;
       setSummary(s);
-      setDepartments(d);
       setLoading(false);
     });
     return () => {
       cancelled = true;
     };
-  }, [user]);
+    // Re-fetch after sign-in sync updates server XP (auth context profile.xp).
+  }, [user, profile?.xp]);
 
   if (!user) return <SignedOut completed={completed} />;
 
   const name = summary?.displayName || profile?.display_name || user.email?.split("@")[0] || "You";
-  const xp = summary?.xp ?? profile?.xp ?? 0;
+  // Prefer whichever source has the higher XP so a summary fetched before the
+  // sign-in sync completes doesn't mask the freshly-synced profile XP.
+  const xp = Math.max(summary?.xp ?? 0, profile?.xp ?? 0);
 
   if (loading) {
     return (
@@ -133,15 +134,17 @@ export function ProfileDashboard() {
     );
   }
 
-  async function onDepartmentChange(value: string | null) {
+  async function onRegionChange(value: string | null) {
     const id = !value || value === "none" ? null : value;
-    setSummary((s) => (s ? { ...s, departmentId: id } : s));
-    const res = await updateMyDepartment(id);
+    setSummary((s) => (s ? { ...s, region: id } : s));
+    const res = await updateMyRegion(id);
     if (res.ok) {
-      toast.success("Department updated");
+      toast.success("Region updated");
       await refreshProfile();
     }
   }
+
+  const league = rankForXp(xp);
 
   return (
     <div className="space-y-6">
@@ -150,19 +153,23 @@ export function ProfileDashboard() {
         <div>
           <h1 className="font-heading text-2xl font-bold">{name}</h1>
           <p className="text-sm text-muted-foreground">{user.email}</p>
+          <span className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-2.5 py-1 text-xs font-medium text-primary">
+            <SparklesIcon className="size-3.5" />
+            {league.name} league
+          </span>
           <div className="mt-4 max-w-xs">
             <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
-              Department (for the team leaderboard)
+              Region (for the regional leaderboard)
             </label>
-            <Select value={summary?.departmentId ?? "none"} onValueChange={onDepartmentChange}>
+            <Select value={summary?.region ?? "none"} onValueChange={onRegionChange}>
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select a department" />
+                <SelectValue placeholder="Select a region" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="none">No department</SelectItem>
-                {departments.map((d) => (
-                  <SelectItem key={d.id} value={d.id}>
-                    {d.name}
+                <SelectItem value="none">No region</SelectItem>
+                {REGIONS.map((r) => (
+                  <SelectItem key={r.id} value={r.id}>
+                    {r.name}
                   </SelectItem>
                 ))}
               </SelectContent>
