@@ -91,6 +91,20 @@ async function awardBadges(
   return earned;
 }
 
+/** Persist the once-per-day streak bonus as an xp_event so it counts toward XP. */
+async function awardStreakBonus(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  supabase: any,
+  userId: string,
+  day: string,
+): Promise<number> {
+  const bonus = POINTS.dailyStreakDailyBonus;
+  await supabase
+    .from("xp_events")
+    .insert({ user_id: userId, type: "streak_bonus", points: bonus, ref: day });
+  return bonus;
+}
+
 async function bumpStreak(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   supabase: any,
@@ -107,7 +121,7 @@ async function bumpStreak(
     await supabase
       .from("streaks")
       .upsert({ user_id: userId, current: 1, longest: 1, last_active_date: today });
-    return POINTS.dailyStreakDailyBonus;
+    return awardStreakBonus(supabase, userId, today);
   }
 
   if (streak.last_active_date === today) return 0; // already counted today
@@ -121,7 +135,7 @@ async function bumpStreak(
     .update({ current, longest, last_active_date: today, updated_at: new Date().toISOString() })
     .eq("user_id", userId);
 
-  return POINTS.dailyStreakDailyBonus;
+  return awardStreakBonus(supabase, userId, today);
 }
 
 async function completeOne(
