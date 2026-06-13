@@ -6,7 +6,6 @@ import Image from "next/image";
 import {
   ArrowRightIcon,
   CheckCircle2Icon,
-  ClockIcon,
   FlagIcon,
   HelpCircleIcon,
   LockIcon,
@@ -51,7 +50,6 @@ type LessonCardData = {
   image?: string;
   art: ArtSpec;
   difficulty?: string;
-  minutes?: number;
   published: boolean;
   isProject?: boolean;
 };
@@ -128,18 +126,11 @@ function LessonCard({
               {data.blurb}
             </p>
           )}
-          {(data.minutes || quizAvailable) && (
+          {quizAvailable && (
             <div className="mt-auto flex items-center gap-3 pt-1 text-[0.7rem] text-muted-foreground">
-              {data.minutes ? (
-                <span className="inline-flex items-center gap-1">
-                  <ClockIcon className="size-3" /> ~{data.minutes} min
-                </span>
-              ) : null}
-              {quizAvailable ? (
-                <span className="inline-flex items-center gap-1">
-                  <HelpCircleIcon className="size-3" /> Quiz
-                </span>
-              ) : null}
+              <span className="inline-flex items-center gap-1">
+                <HelpCircleIcon className="size-3" /> Quiz
+              </span>
             </div>
           )}
         </div>
@@ -186,7 +177,6 @@ function LevelGroup({
   const done = hydrated ? countComplete(lessonsMap, ids) : 0;
   const pct = ids.length ? Math.round((done / ids.length) * 100) : 0;
   const complete = done === ids.length && ids.length > 0;
-  const minutes = level.lessons.reduce((s, l) => s + (l.estMinutes ?? 0), 0);
 
   const onPath = recommended
     ? level.lessons.filter((l) => recommended.has(l.id)).length
@@ -200,7 +190,6 @@ function LevelGroup({
     image: lessonImage(lesson.id),
     art: lessonArt(lesson.id, level.id),
     difficulty: lesson.difficulty,
-    minutes: lesson.estMinutes,
     published: lesson.status === "published",
   }));
   if (level.miniProject) {
@@ -210,7 +199,6 @@ function LevelGroup({
       blurb: lessonBlurb(level.miniProject.id),
       image: lessonImage(level.miniProject.id),
       art: lessonArt(level.miniProject.id, level.id),
-      minutes: level.miniProject.estMinutes,
       published: level.miniProject.status === "published",
       isProject: true,
     });
@@ -251,7 +239,6 @@ function LevelGroup({
         <div className="shrink-0 sm:w-44 sm:text-right">
           <p className="text-xs text-muted-foreground">
             {level.lessons.length} lessons{level.miniProject ? " + project" : ""}
-            {minutes > 0 ? ` · ~${minutes} min` : ""}
           </p>
           {hydrated && done > 0 ? (
             <div className="mt-2 flex items-center gap-2">
