@@ -35,7 +35,7 @@ export function LessonPlaceholder({
       )}
 
       <div className="mt-6 flex justify-center gap-2">
-        <LinkButton href="/learn/1/1.1">Start Level 1</LinkButton>
+        <LinkButton href="/learn/1.1">Start Level 1</LinkButton>
         <LinkButton href="/#curriculum" variant="outline">
           Back to curriculum
         </LinkButton>

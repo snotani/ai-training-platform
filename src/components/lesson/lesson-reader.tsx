@@ -89,7 +89,7 @@ export function LessonReader({ children }: { children: React.ReactNode }) {
         />
       </div>
 
-      <div className="lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
+      <div className="pt-6 lg:grid lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
         <aside className="hidden lg:block">
           {items.length > 0 && (
             <nav className="sticky top-20 max-h-[calc(100vh-6rem)] overflow-y-auto py-1 pr-2">

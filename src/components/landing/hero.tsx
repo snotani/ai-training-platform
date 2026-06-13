@@ -183,7 +183,7 @@ export function Hero() {
 
           <motion.div variants={item} className="mt-9 flex flex-wrap items-center justify-center gap-3">
             <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }}>
-              <LinkButton href="/learn/1/1.1" size="lg" className="h-11 px-5 text-sm">
+              <LinkButton href="/learn/1.1" size="lg" className="h-11 px-5 text-sm">
                 Start from the fundamentals
                 <ArrowRightIcon />
               </LinkButton>

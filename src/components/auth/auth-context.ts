@@ -22,6 +22,7 @@ export type AuthContextValue = {
     displayName?: string,
   ) => Promise<AuthResult>;
   signInWithMagicLink: (email: string) => Promise<AuthResult>;
+  signInWithGoogle: () => Promise<AuthResult>;
   signOut: () => Promise<void>;
 };
 

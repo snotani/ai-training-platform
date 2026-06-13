@@ -21,8 +21,6 @@ export function Term({ k, children }: { k?: string; children: React.ReactNode })
 
   if (!term) return <>{children}</>;
 
-  const level = term.introducedIn.split(".")[0];
-
   return (
     <HoverCard>
       <HoverCardTrigger
@@ -36,7 +34,7 @@ export function Term({ k, children }: { k?: string; children: React.ReactNode })
         <p className="font-heading text-sm font-semibold">{term.term}</p>
         <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{term.short}</p>
         <Link
-          href={`/learn/${level}/${term.introducedIn}`}
+          href={`/learn/${term.introducedIn}`}
           className="mt-2.5 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
         >
           Introduced in Lesson {term.introducedIn}

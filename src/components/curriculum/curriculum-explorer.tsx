@@ -57,19 +57,17 @@ type LessonCardData = {
 };
 
 function LessonCard({
-  levelId,
   data,
   done,
   dimmed,
   index,
 }: {
-  levelId: number;
   data: LessonCardData;
   done: boolean;
   dimmed: boolean;
   index: number;
 }) {
-  const href = `/learn/${levelId}/${data.id}`;
+  const href = `/learn/${data.id}`;
   const quizAvailable = data.published && hasQuiz(data.id);
 
   return (
@@ -101,7 +99,7 @@ function LessonCard({
             </span>
           )}
           {done ? (
-            <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 rounded-full bg-emerald-500/90 px-2 py-0.5 text-[0.7rem] font-medium text-white shadow">
+            <span className="absolute top-2.5 right-2.5 inline-flex items-center gap-1 rounded-full bg-orange-500/90 px-2 py-0.5 text-[0.7rem] font-medium text-white shadow">
               <CheckCircle2Icon className="size-3" /> Done
             </span>
           ) : !data.published ? (
@@ -149,7 +147,11 @@ function LessonCard({
 
       <div className="px-4 pb-4">
         {quizAvailable ? (
-          <QuizDialog lessonId={data.id} label={done ? "Review quiz" : "Take the quiz"} />
+          <QuizDialog
+            lessonId={data.id}
+            label={done ? "Review quiz" : "Take the quiz"}
+            completed={done}
+          />
         ) : data.published ? (
           <LinkButton href={href} variant="secondary" className="h-10 w-full justify-center">
             {data.isProject ? "Start project" : "Open lesson"}
@@ -271,7 +273,6 @@ function LevelGroup({
         {cards.map((data, i) => (
           <LessonCard
             key={data.id}
-            levelId={level.id}
             data={data}
             done={hydrated && Boolean(lessonsMap[data.id])}
             dimmed={recommended !== null && !data.isProject && !recommended.has(data.id)}

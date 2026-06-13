@@ -58,7 +58,7 @@ function groupLessonsByLevel(ids: string[]): LevelGroup[] {
 function firstLessonHref(p: Pathway): string {
   const first = p.recommendedLessons[0];
   const found = getLesson(first);
-  return found ? `/learn/${found.level.id}/${first}` : "/#curriculum";
+  return found ? `/learn/${first}` : "/#curriculum";
 }
 
 function PathwayCard({ p }: { p: Pathway }) {

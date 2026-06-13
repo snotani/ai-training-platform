@@ -37,7 +37,6 @@ export function GlossaryExplorer() {
 
       <div className="mt-5 grid gap-3 sm:grid-cols-2">
         {filtered.map((t) => {
-          const level = t.introducedIn.split(".")[0];
           return (
             <div key={t.term} className="rounded-2xl border bg-card p-4">
               <div className="flex items-start justify-between gap-2">
@@ -50,7 +49,7 @@ export function GlossaryExplorer() {
               </div>
               <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{t.short}</p>
               <Link
-                href={`/learn/${level}/${t.introducedIn}`}
+                href={`/learn/${t.introducedIn}`}
                 className="mt-3 inline-flex items-center gap-1 text-xs font-medium text-primary hover:underline"
               >
                 Lesson {t.introducedIn}

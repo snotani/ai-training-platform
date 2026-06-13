@@ -5,6 +5,7 @@ import type { SupabaseClient, User } from "@supabase/supabase-js";
 
 import { createClient } from "@/lib/supabase/client";
 import { isSupabaseConfigured } from "@/lib/supabase/env";
+import { getSiteUrl } from "@/lib/site";
 import type { Database } from "@/lib/supabase/types";
 import { useProgressStore } from "@/lib/progress/store";
 import { getMyProgress, syncLocalProgress } from "@/lib/gamification/actions";
@@ -112,9 +113,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     },
     signInWithMagicLink: async (email) => {
       if (!supabase) return { error: "Sign-in isn't configured yet." };
-      const emailRedirectTo =
-        typeof window !== "undefined" ? `${window.location.origin}/auth/callback` : undefined;
+      const emailRedirectTo = `${getSiteUrl()}/auth/callback`;
       const { error } = await supabase.auth.signInWithOtp({ email, options: { emailRedirectTo } });
+      return { error: error?.message };
+    },
+    signInWithGoogle: async () => {
+      if (!supabase) return { error: "Sign-in isn't configured yet." };
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo: `${getSiteUrl()}/auth/callback` },
+      });
       return { error: error?.message };
     },
     signOut: async () => {

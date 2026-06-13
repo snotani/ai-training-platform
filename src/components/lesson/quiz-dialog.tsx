@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { HelpCircleIcon, LightbulbIcon } from "lucide-react";
+import { CheckCircle2Icon, HelpCircleIcon, LightbulbIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -29,10 +29,12 @@ export function hasQuiz(lessonId: string): boolean {
 export function QuizDialog({
   lessonId,
   label = "Take the quiz",
+  completed = false,
   className,
 }: {
   lessonId: string;
   label?: string;
+  completed?: boolean;
   className?: string;
 }) {
   if (!hasQuiz(lessonId)) return null;
@@ -42,10 +44,17 @@ export function QuizDialog({
     <Dialog>
       <DialogTrigger
         render={
-          <Button className={cn("h-10 w-full justify-center gap-2", className)} />
+          <Button
+            className={cn(
+              "h-10 w-full justify-center gap-2",
+              completed &&
+                "bg-orange-500 text-white hover:bg-orange-500/90",
+              className,
+            )}
+          />
         }
       >
-        <LightbulbIcon />
+        {completed ? <CheckCircle2Icon /> : <LightbulbIcon />}
         {label}
       </DialogTrigger>
       <DialogContent className="max-h-[88vh] overflow-y-auto sm:max-w-xl">

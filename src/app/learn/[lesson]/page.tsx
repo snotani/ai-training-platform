@@ -70,13 +70,13 @@ function resolve(id: string): Resolved | null {
 }
 
 export function generateStaticParams() {
-  return getFlatNav().map((n) => ({ level: String(n.levelId), lesson: n.id }));
+  return getFlatNav().map((n) => ({ lesson: n.id }));
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ level: string; lesson: string }>;
+  params: Promise<{ lesson: string }>;
 }) {
   const { lesson } = await params;
   const r = resolve(lesson);
@@ -86,7 +86,7 @@ export async function generateMetadata({
 export default async function LessonPage({
   params,
 }: {
-  params: Promise<{ level: string; lesson: string }>;
+  params: Promise<{ lesson: string }>;
 }) {
   const { lesson } = await params;
   const r = resolve(lesson);
@@ -101,7 +101,7 @@ export default async function LessonPage({
   const content = (
     <>
       <Link
-        href={`/learn/${r.level.id}`}
+        href={`/#level-${r.level.id}`}
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         <ArrowLeftIcon className="size-3.5" />
@@ -166,7 +166,7 @@ export default async function LessonPage({
       <nav className="mt-12 grid gap-3 sm:grid-cols-2">
         {prev ? (
           <Link
-            href={`/learn/${prev.levelId}/${prev.id}`}
+            href={`/learn/${prev.id}`}
             className="group flex flex-col gap-1 rounded-2xl border p-4 transition-colors hover:border-primary/40 hover:bg-muted/40"
           >
             <span className="inline-flex items-center gap-1 text-xs text-muted-foreground">
@@ -179,7 +179,7 @@ export default async function LessonPage({
         )}
         {next ? (
           <Link
-            href={`/learn/${next.levelId}/${next.id}`}
+            href={`/learn/${next.id}`}
             className="group flex flex-col gap-1 rounded-2xl border p-4 text-right transition-colors hover:border-primary/40 hover:bg-muted/40"
           >
             <span className="inline-flex items-center justify-end gap-1 text-xs text-muted-foreground">
@@ -196,7 +196,7 @@ export default async function LessonPage({
 
   if (published) {
     return (
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
         <LessonReader>{content}</LessonReader>
       </div>
     );

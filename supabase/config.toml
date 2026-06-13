@@ -1,0 +1,35 @@
+# Supabase project configuration.
+# Applied automatically when using the Supabase CLI (`supabase db push`,
+# `supabase start`, branching). For the hosted dashboard, mirror the auth
+# settings below under Authentication > URL Configuration / Email Templates.
+
+project_id = "yrjmbdjapcmrwssubcrj"
+
+[auth]
+# The base URL of your site. Used as the default redirect and in email links.
+# This is what fixes magic links pointing at localhost.
+site_url = "https://ai.snotani.com"
+# Extra URLs that auth redirects (magic link / OAuth) are allowed to use.
+additional_redirect_urls = [
+  "https://ai.snotani.com/auth/callback",
+  "http://localhost:3000/auth/callback",
+  "http://localhost:3001/auth/callback",
+]
+jwt_expiry = 3600
+enable_signup = true
+
+[auth.email]
+enable_signup = true
+enable_confirmations = false
+
+# Branded magic-link email. Edit supabase/templates/magic_link.html.
+[auth.email.template.magic_link]
+subject = "Your AI Training sign-in link"
+content_path = "./supabase/templates/magic_link.html"
+
+# Google OAuth. Set the secrets via environment variables before `supabase start`:
+#   SUPABASE_AUTH_GOOGLE_CLIENT_ID, SUPABASE_AUTH_GOOGLE_SECRET
+[auth.external.google]
+enabled = true
+client_id = "env(SUPABASE_AUTH_GOOGLE_CLIENT_ID)"
+secret = "env(SUPABASE_AUTH_GOOGLE_SECRET)"
