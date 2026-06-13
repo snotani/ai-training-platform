@@ -44,7 +44,7 @@ function RotatingPhrase() {
   }, []);
 
   return (
-    <span className="mt-1 flex h-[1.15em] items-center justify-center overflow-hidden">
+    <span className="mt-1 flex min-h-[1.15em] items-center justify-center overflow-hidden text-center">
       <AnimatePresence mode="wait">
         <motion.span
           key={index}
@@ -167,7 +167,7 @@ export function Hero() {
 
           <motion.h1
             variants={item}
-            className="font-heading mt-6 flex flex-col text-5xl font-bold tracking-tight text-balance sm:text-7xl"
+            className="font-heading mt-6 flex flex-col text-4xl font-bold tracking-tight text-balance sm:text-6xl lg:text-7xl"
           >
             <span>Master AI from</span>
             <RotatingPhrase />
