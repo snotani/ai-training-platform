@@ -19,11 +19,24 @@ export const quizzes: Record<string, QuizQuestion[]> = {
       why: "In traditional ML, humans hand-pick features; deep learning learns them from raw data.",
     },
     {
-      q: "You have a clean customer table and need an explainable \u201Cwill they churn?\u201D score. Best fit?",
-      options: ["Traditional ML", "Generative AI", "Deep Learning"],
+      q: "Netflix recommending shows you\u2019ll probably like, learned from your watch history, is mostly which type?",
+      options: ["Traditional ML", "Deep Learning", "Generative AI"],
       answer: 0,
-      why: "Structured data plus a need for explainability points to Traditional ML.",
+      why: "It learns patterns from a tidy table of your history and predicts a label - classic Traditional ML.",
       application: true,
+    },
+    {
+      q: "Snapchat\u2019s dog-ear filter finding your face in the raw camera feed and tracking it is which type?",
+      options: ["Traditional ML", "Deep Learning", "Generative AI"],
+      answer: 1,
+      why: "Raw pixels in, \u201Cthat\u2019s a face\u201D out, with features learned on its own - that\u2019s Deep Learning.",
+      application: true,
+    },
+    {
+      q: "Which one can create brand-new content rather than just labeling or scoring it?",
+      options: ["Traditional ML", "Deep Learning", "Generative AI"],
+      answer: 2,
+      why: "Only Generative AI produces new text, images, audio, or code instead of a label or number.",
     },
     {
       q: "Generative AI is best described as:",

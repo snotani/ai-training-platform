@@ -14,8 +14,8 @@ import { cn } from "@/lib/utils";
 
 export function Hook({ children }: { children: React.ReactNode }) {
   return (
-    <div className="not-prose my-6 flex gap-4 rounded-2xl bg-brand-gradient/[0.04] p-5 ring-1 ring-primary/15">
-      <div className="mt-0.5 flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-sm">
+    <div className="not-prose my-6 flex items-center gap-4 rounded-2xl bg-brand-gradient/[0.04] p-5 ring-1 ring-primary/15">
+      <div className="flex size-9 shrink-0 items-center justify-center rounded-xl bg-brand-gradient text-white shadow-sm">
         <SparklesIcon className="size-4.5" />
       </div>
       <div className="text-pretty text-lg leading-relaxed font-medium text-foreground/90 [&>p]:m-0">

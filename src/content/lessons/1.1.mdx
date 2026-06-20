@@ -1,7 +1,7 @@
 export const meta = {
   id: "1.1",
   summary: "The four eras of AI, and how Traditional ML, Deep Learning, and Generative AI differ.",
-  interactiveIds: ["pick-the-right-tool"],
+  interactiveIds: ["who-does-the-thinking", "guess-the-type", "genai-mythbuster", "pick-the-right-tool"],
 };
 
 <Hook>
@@ -10,11 +10,11 @@ You&rsquo;ve used AI for years - spam filters, autocomplete, Netflix picks. So w
 
 <Example title="The simple idea">
 
-Watch your spam filter evolve:
+Look at something you do a hundred times a day: finding the answer to a question.
 
-- **1995:** a human wrote rules - &ldquo;if it says &lsquo;free money&rsquo;, block it.&rdquo; Spammers wrote &ldquo;fr3e m0ney&rdquo; and walked straight through.
-- **2010:** it learned from millions of emails what spam looks like - no hand-written rules.
-- **Today:** AI can write the email, reply to it, and summarize the thread.
+- **Then (rules):** you flipped through an encyclopedia or asked around - you did all the digging yourself.
+- **Learned:** Google learned from patterns across billions of pages and ranked the best links for you - but you still had to read them and piece the answer together.
+- **Today:** ChatGPT just gives you the answer, written out, in plain words.
 
 Each step handed more of the thinking to the machine.
 
@@ -30,6 +30,8 @@ flowchart LR
 ```
 
 </Visual>
+
+<Interactive id="who-does-the-thinking" />
 
 <HowItWorks>The three types that matter today</HowItWorks>
 
@@ -53,18 +55,38 @@ flowchart TB
 ### 1. Traditional Machine Learning
 
 - **What:** algorithms that learn patterns from mostly structured (table-like) data.
-- **How it learns:** a human picks the useful columns - <Term k="Feature engineering">&ldquo;features&rdquo; like income, age, past purchases</Term> - and the model finds the relationship.
-- **Output:** a number or a label - &ldquo;85% likely to churn&rdquo;, &ldquo;fraud / not fraud&rdquo;.
+- **How it learns:** a human picks the useful columns - <Term k="Feature engineering">&ldquo;features&rdquo; like watch time, genre, time of day</Term> - and the model finds the relationship.
+- **Output:** a number or a label - &ldquo;92% match&rdquo;, &ldquo;will watch / won&rsquo;t&rdquo;.
 - **Names you&rsquo;ll hear:** logistic regression, decision trees, random forests, gradient boosting.
-- **Where you&rsquo;ve seen it:** your bank texting &ldquo;Did you just spend $400? Reply YES/NO&rdquo; - it scored one tidy row of your transaction (amount, location, time) and flagged it as odd.
+- **Where you&rsquo;ve seen it:** Netflix&rsquo;s &ldquo;Top picks for you&rdquo; - it learns from the tidy table of what you watched and predicts the next show you&rsquo;ll binge.
+
+<Visual caption="Traditional ML: a table of your history in, a ranked prediction out.">
+
+```mermaid
+flowchart LR
+  hist["Your watch history<br/>(a tidy table)"] --> ml["Traditional ML"]
+  ml --> pick["Top picks for you<br/>92 percent match"]
+```
+
+</Visual>
 
 ### 2. Deep Learning
 
 - **What:** neural networks with many stacked layers. A subset of ML.
 - **How it learns:** feed it raw, messy data (pixels, audio, text) and it discovers the useful features by itself - no manual feature engineering.
-- **Output:** still usually a label/number, but on unstructured data - &ldquo;this scan shows a tumor&rdquo;.
+- **Output:** still usually a label/number, but on unstructured data - &ldquo;there&rsquo;s a face, here are the eyes&rdquo;.
 - **Cost:** needs lots of data and serious compute (GPUs).
-- **Where you&rsquo;ve seen it:** Face ID unlocking your phone, or Google Photos finding every pic of your dog - raw pixels go in, &ldquo;yep, that&rsquo;s them&rdquo; comes out.
+- **Where you&rsquo;ve seen it:** Snapchat&rsquo;s dog-ear filter - raw camera pixels go in, it finds your face and tracks it as you move, and the ears stay glued on.
+
+<Visual caption="Deep Learning: raw pixels in, 'that's a face' out - features found on its own.">
+
+```mermaid
+flowchart LR
+  pixels["Raw camera pixels"] --> dl["Deep Learning"]
+  dl --> face["Found a face<br/>stick the dog ears on"]
+```
+
+</Visual>
 
 ### 3. Generative AI
 
@@ -72,22 +94,29 @@ flowchart TB
 - **How it learns:** trained on enormous amounts of unlabelled data by predicting missing/next pieces (&ldquo;self-supervised&rdquo;).
 - **Output:** new content - text, images, audio, video, code.
 - **Superpower:** one general model handles many tasks it was never explicitly trained for.
-- **Where you&rsquo;ve seen it:** ChatGPT drafting your email or writing an Instagram caption - you type a prompt and it creates words that never existed before.
+- **Where you&rsquo;ve seen it:** asking ChatGPT to draft a reply to an awkward text - you give it one line about what you want to say, and it writes the whole message for you, words that never existed before.
 
-<Visual caption="Where you've met each one this week: every type maps to something you already use.">
+<Visual caption="Generative AI: a one-line prompt in, a brand-new written reply out.">
 
 ```mermaid
 flowchart LR
-  ml["Traditional ML"] --> mlx["Bank fraud alert text"]
-  dl["Deep Learning"] --> dlx["Face ID unlocks your phone"]
-  gen["Generative AI"] --> genx["ChatGPT writes your email"]
+  prompt["Your one-line prompt"] --> gen["Generative AI"]
+  gen --> reply["ChatGPT writes<br/>the whole reply"]
 ```
 
 </Visual>
 
-<Callout type="tip" title="One pile of reviews, three jobs">
-**Traditional ML** predicts a 1-5 satisfaction score from a table. **Deep Learning** reads the raw text and classifies each review positive / negative / mixed. **Generative AI** writes a personalized reply to each unhappy reviewer. Same data - predict, classify, create.
+<Interactive id="guess-the-type" />
+
+<Callout type="tip" title="One pile of photos, three jobs">
+Open your camera roll - one pile of photos, three totally different AI jobs.<br />
+**Traditional ML** predicts which shots you&rsquo;ll love and auto-favorites them from the metadata.<br />
+**Deep Learning** recognizes faces so you can search &ldquo;all photos of my dog at the beach.&rdquo;<br />
+**Generative AI** turns a selfie into a cartoon or paints in a whole new background.<br />
+Same photos - predict, recognize, create.
 </Callout>
+
+<Interactive id="genai-mythbuster" />
 
 <HowItWorks>When to use which</HowItWorks>
 
@@ -97,26 +126,18 @@ flowchart LR
       name: "Traditional ML",
       accent: "blue",
       attributes: [
-        { label: "Data type", value: "Structured tables" },
-        { label: "Who finds features", value: "You (manual)" },
-        { label: "Typical output", value: "Number / label" },
-        { label: "Data + compute", value: "Low" },
-        { label: "Explain the why?", value: "Often yes" },
-        { label: "Best for", value: "Predicting from tidy data" },
-        { label: "Everyday example", value: "Bank fraud text alert" },
+        { label: "In one line", value: "Learns patterns from tidy tables to predict a number or label." },
+        { label: "Everyday example", value: "Netflix \u201CTop picks for you\u201D" },
+        { label: "Reach for it when\u2026", value: "Your data is a clean table and you want an explainable prediction." },
       ],
     },
     {
       name: "Deep Learning",
       accent: "cyan",
       attributes: [
-        { label: "Data type", value: "Unstructured (images, audio, text)" },
-        { label: "Who finds features", value: "The model" },
-        { label: "Typical output", value: "Number / label" },
-        { label: "Data + compute", value: "High" },
-        { label: "Explain the why?", value: "Hard" },
-        { label: "Best for", value: "Perception tasks" },
-        { label: "Everyday example", value: "Face ID / photo search" },
+        { label: "In one line", value: "Finds its own features in raw images, audio, or text." },
+        { label: "Everyday example", value: "Snapchat face filters" },
+        { label: "Reach for it when\u2026", value: "The input is raw pixels, audio, or free text - not a table." },
       ],
     },
     {
@@ -124,13 +145,9 @@ flowchart LR
       accent: "teal",
       highlight: true,
       attributes: [
-        { label: "Data type", value: "Unstructured, general" },
-        { label: "Who finds features", value: "The model" },
-        { label: "Typical output", value: "New content" },
-        { label: "Data + compute", value: "Very high" },
-        { label: "Explain the why?", value: "Hard" },
-        { label: "Best for", value: "Creating, summarizing, reasoning over language" },
-        { label: "Everyday example", value: "ChatGPT drafts a reply" },
+        { label: "In one line", value: "Creates brand-new content from a prompt." },
+        { label: "Everyday example", value: "ChatGPT drafts your reply" },
+        { label: "Reach for it when\u2026", value: "You need to make or transform content - text, images, code." },
       ],
     },
   ]}
@@ -140,9 +157,9 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  start["What do you need?"] --> q1{"Create or transform content?"}
+  start["What do you need?"] --> q1{"Create new content?"}
   q1 -->|"Yes"| gen["Generative AI"]
-  q1 -->|"No"| q2{"Is the data raw images / audio / free text?"}
+  q1 -->|"No"| q2{"Is the input raw pixels, audio, or text?"}
   q2 -->|"Yes"| dl["Deep Learning"]
   q2 -->|"No - it's a tidy table"| ml["Traditional ML"]
 ```
@@ -164,8 +181,8 @@ flowchart TD
 
 <Recap
   items={[
-    "AI evolved: rule-based -> traditional ML -> deep learning -> generative AI, each handing more thinking to the machine.",
+    "AI evolved like finding an answer: encyclopedia/asking around -> Google ranking links -> ChatGPT just answering, each handing more thinking to the machine.",
     "They're nested: GenAI is deep learning; deep learning is ML; ML is AI.",
-    "Match the tool to the job: tidy/explainable -> ML; perception on raw data -> DL; creating content -> GenAI.",
+    "Match the tool to the job: Netflix-style tables -> ML; raw pixels/audio like face filters -> DL; creating content like ChatGPT writing your reply -> GenAI.",
   ]}
 />
