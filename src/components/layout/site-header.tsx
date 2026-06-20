@@ -45,7 +45,7 @@ export function SiteHeader() {
           : "border-b border-transparent bg-background/0",
       )}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto flex h-16 max-w-8xl items-center gap-4 px-4 sm:px-6 lg:px-8">
         <Link href="/" className="shrink-0" aria-label="AI Training home">
           <BrandWordmark />
         </Link>

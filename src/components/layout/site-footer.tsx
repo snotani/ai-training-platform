@@ -6,7 +6,7 @@ import { BrandWordmark } from "@/components/brand-mark";
 export function SiteFooter() {
   return (
     <footer className="mt-16 border-t border-border/60">
-      <div className="mx-auto max-w-7xl px-4 py-7 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-8xl px-4 py-7 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-center">
           <div className="flex items-center gap-3">
             <BrandWordmark />

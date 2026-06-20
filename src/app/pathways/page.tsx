@@ -4,7 +4,7 @@ export const metadata = { title: "Pathways" };
 
 export default function PathwaysPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto max-w-8xl px-4 py-12 sm:px-6 lg:px-8">
       <header className="max-w-2xl">
         <p className="text-sm font-medium text-primary">Pathways</p>
         <h1 className="font-heading mt-1.5 text-3xl font-bold tracking-tight sm:text-4xl">
