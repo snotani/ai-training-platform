@@ -7,6 +7,9 @@ import { PasteOrNot } from "@/components/lesson/interactives/paste-or-not";
 import { WhoDoesTheThinking } from "@/components/lesson/interactives/who-does-the-thinking";
 import { GuessTheType } from "@/components/lesson/interactives/guess-the-type";
 import { GenaiMythbuster } from "@/components/lesson/interactives/genai-mythbuster";
+import { TokenSplitter } from "@/components/lesson/interactives/token-splitter";
+import { OrderThePipeline } from "@/components/lesson/interactives/order-the-pipeline";
+import { PredictTheNextToken } from "@/components/lesson/interactives/predict-the-next-token";
 
 const REGISTRY: Record<string, React.ComponentType> = {
   "pick-the-right-tool": PickTheRightTool,
@@ -16,6 +19,9 @@ const REGISTRY: Record<string, React.ComponentType> = {
   "who-does-the-thinking": WhoDoesTheThinking,
   "guess-the-type": GuessTheType,
   "genai-mythbuster": GenaiMythbuster,
+  "token-splitter": TokenSplitter,
+  "order-the-pipeline": OrderThePipeline,
+  "predict-the-next-token": PredictTheNextToken,
 };
 
 export function Interactive({ id }: { id: string }) {

@@ -69,6 +69,27 @@ export const quizzes: Record<string, QuizQuestion[]> = {
       why: "Lower temperature makes output more deterministic - the cheapest fix.",
       application: true,
     },
+    {
+      q: "You ask the exact same question twice and get differently-worded answers. Why?",
+      options: [
+        "The model is broken",
+        "It samples its next tokens, so some randomness creeps in (temperature)",
+        "It forgot the first answer",
+      ],
+      answer: 1,
+      why: "Generation samples from probabilities; unless temperature is near zero, runs can differ.",
+      application: true,
+    },
+    {
+      q: "Which phase makes a model actually helpful and polite rather than just fluent?",
+      options: [
+        "Pre-training (reading the internet)",
+        "Post-training (fine-tuning + RLHF)",
+        "Adding more tokens to the prompt",
+      ],
+      answer: 1,
+      why: "Pre-training builds raw knowledge; post-training (the 'finishing school') coaches it to be helpful, honest, and safe.",
+    },
   ],
   "1.3": [
     {
