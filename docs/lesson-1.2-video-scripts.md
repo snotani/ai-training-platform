@@ -2,45 +2,29 @@
 
 Short-form video scripts (TikTok / Reels / Shorts, ≤60s each) based on **Lesson 1.2 — How models work** (tokens, next-token prediction, temperature, pre/post-training, scale). Same formula as the 1.1 scripts: first line is a hooking statement, then dive straight into a concrete relatable example, minimal jargon/filler, spoken words only.
 
-CTA system is shared with Lesson 1.1 — see `lesson-1.1-video-scripts.md` for the `TYPES` comment-to-DM mechanic and the per-lesson keyword scheme. Course CTA (`TYPES`) is used on Videos 1 and 3; Video 2 uses a guess-in-comments engagement prompt.
+CTA system is shared with Lesson 1.1 — see `lesson-1.1-video-scripts.md` for the `TYPES` comment-to-DM mechanic and the per-lesson keyword scheme. Course CTA (`TYPES`) is used on Videos 1, 2, and 4; Video 3 uses a guess-in-comments engagement prompt.
 
 ---
 
-## Video 1 — "AI can't read"
+## Video 1 — "What's actually a token?"
 
-**Concept:** tokens — the model reads text in chunks, not words. Ends with the course CTA.
+**Concept:** tokens — what they are and how text gets split into them. Ends with the course CTA.
 
-> AI can't actually read — it doesn't even see words.
+> You've seen this message — "you're out of tokens." Annoying. But what actually *is* a token, and how does it get split?
 >
-> Type "I'll grab coffee later" and you see four words. ChatGPT sees five chunks — and "1999" it'll chop into one, nine, nine, nine, digit by digit.
+> Start here: the model doesn't read words like you do. It reads tokens — little chunks of text.
 >
-> Here's why: it breaks text into common pieces called tokens. A word it sees constantly, like "the," stays one piece. A rare one like "unbelievable" gets sliced into "un," "believ," "able" — bits it already knows.
+> Take "unbelievable." To you, one word. To the model, three tokens — "un," "believ," "able." Now a whole sentence — "I'll grab coffee later" — breaks into a handful of chunks too.
 >
-> That's why a long PDF gets cut off or costs more on the API — you're not paying per word, you're paying per chunk, like a taxi meter ticking up.
+> So why those splits? The tokenizer learns the most common chunks of text and reuses them. A very common whole word like "the" or "running" is usually a single token, while a rarer or longer word gets chopped into smaller sub-word pieces it's seen before. Spaces and punctuation ride along as part of tokens too, and numbers often split digit by digit.
 >
-> So next time it forgets the end of your giant prompt, that's the meter running out.
+> So when you're "out of tokens," you're really out of chunks — not words.
 >
-> Want to actually get how these things work? I made a free beginner course — comment TYPES and I'll DM you the link.
-
----
-
-## Video 2 — "ChatGPT is just autocomplete"
-
-**Concept:** next-token prediction — autocomplete scaled up. Ends with a guess-in-comments engagement prompt.
-
-> ChatGPT is just your phone's autocomplete — wearing a really good suit.
->
-> You know when Gmail finishes your sentence? You type "let me know if you have any" and a grey "questions" floats up, you hit Tab, done. It just guessed the most likely next word.
->
-> That's the entire trick. The model looks at everything so far, ranks the most likely next chunk, picks one, then does it again — and again — until the thought is finished.
->
-> After "The capital of France is," the word "Paris" gets a massive score and "banana" gets basically zero. It's not looking anything up. It's just really, really good at "what usually comes next."
->
-> So here's my question — "Once upon a ___." What's the next word your brain just filled in? Comment your answer, let's see if you think like the model.
+> Want the rest of how AI actually works? I made a free beginner course — comment TYPES and I'll DM you the link.
 
 ---
 
-## Video 3 — "The one setting that changes everything"
+## Video 2 — "The one setting that changes everything"
 
 **Concept:** temperature — the randomness dial. Ends with the course CTA.
 
@@ -55,3 +39,37 @@ CTA system is shared with Lesson 1.1 — see `lesson-1.1-video-scripts.md` for t
 > So if your AI sounds flat, you don't need a better prompt — you need to turn the dial up.
 >
 > I break down all of this in a free beginner course — comment TYPES and I'll send it straight to your DMs.
+
+---
+
+## Video 3 — "How ChatGPT actually gets trained"
+
+**Concept:** pre-training and post-training (fine-tuning + RLHF) — how a raw model becomes a helpful assistant. Ends with a guess-in-comments engagement prompt.
+
+> Raw, untrained ChatGPT would be a nightmare to talk to. Here's the two-step glow-up that fixed it.
+>
+> Step one is pre-training: they let it read basically the whole internet — trillions of words — doing one thing over and over, guessing the next chunk of text. After enough of that it gets fluent and weirdly knowledgeable. But it's a know-it-all with zero manners — it'll ignore your actual question and just ramble facts.
+>
+> Step two is finishing school — this part's called post-training, and it's two moves. First, fine-tuning: humans show it thousands of examples of a good question and a good answer. Then RLHF — reinforcement learning from human feedback — where people rank its replies, this one's better, that one's worse, until it learns what we actually want.
+>
+> Pre-training gives it the knowledge. Fine-tuning and RLHF give it the manners. Skip step two and you've got a genius who won't shut up and won't answer the question.
+>
+> So tell me — if it had skipped finishing school, what's the rudest thing it'd say back? Drop it in the comments.
+
+---
+
+## Video 4 — "200B, 300B, 1T parameters — what does that even mean?"
+
+**Concept:** parameters and scale — the billions of dials, what they encode, and why scale drives capability. Ends with the course CTA.
+
+> You see it on every model — 200 billion parameters, 300 billion, a trillion. But what does that actually mean?
+>
+> A parameter is just a tiny dial inside the model, set while it trains — and there are billions of them.
+>
+> Each dial nudges one little association. One might capture that "Paris" strongly follows "the capital of France." Another, that "cat" and "pet" belong together. Another learns a plural tends to follow "three," or that an angry email sounds different from a thank-you note.
+>
+> No single dial knows anything. But turn billions of them at once and out comes grammar, facts, tone — all of it.
+>
+> And the headline's simple: more dials, plus more data, plus more computing power, equals more capable. That's the whole "scaling" story behind every jump you've seen.
+>
+> I break this stuff down in a free beginner course — comment TYPES and I'll DM you the link.
